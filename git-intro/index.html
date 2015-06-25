@@ -95,43 +95,108 @@
         <p class="credits">Yann LERJEN - 2015</p>
     </section>
 
-    <!--
-        
-        The `id` attribute of the step element is used to identify it in the URL, but it's optional.
-        If it is not defined, it will get a default value of `step-N` where N is a number of slide.
-        
-        So in the example below it'll be `step-2`.
-        
-        The hash part of the url when this step is active will be `#/step-2`.
-        
-        You can also use `#step-2` in a link, to point directly to this particular step.
-        
-        Please note, that while `#/step-2` (with slash) would also work in a link it's not recommended.
-        Using classic `id`-based links like `#step-2` makes these links usable also in fallback mode.
-        
-    -->
+
+    <section class="step" data-x="1000" data-y="2000" data-scale="5">
+        <h1 class="slide-title">Philosophie git</h1>
+        <ul class="list">
+            <li>Dépôt distribué</li>
+            <li>Pas de dépendance réseau (latence, dev nomade, ...)</li>
+            <li>Partage de code inter-personnel sans passer par l'origin</li>
+            <li>Rapidité d'opération (diff, log, ... tout est exécuté en local)</li>
+        </ul>
+    </section>
+
+    <div class="step" data-x="2000" data-y="1000" data-rotate-x="60" data-scale="1">        
+        <figure class="illustration">
+            <img src="img/distributed-repo.png" alt="Structure distribuée">
+            <figcaption>Structure distribuée</figcaption>            
+        </figure>
+    </div>
+
     <div class="step slide" data-x="0" data-y="-1500">
-        <q>Don't you think that presentations given <strong>in modern browsers</strong> shouldn't <strong>copy the limits</strong> of 'classic' slide decks?</q>
+        <h1 class="slide-title">Comparaison avec SVN</h1>
+        <table class="comparator">
+            <thead>
+                <tr>
+                    <th>git</th>
+                    <th>svn</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dépôt distribué</td>
+                    <td>Dépôt centralisé</td>
+                </tr>
+                <tr>
+                    <td>Opérations locales</td>
+                    <td>Opérations sur serveur</td>
+                </tr>
+                <tr>
+                    <td>Snapshot<br/><span class="details">(Gestion d'un système de fichier)</span></td>
+                    <td>Version<br/><span class="details">(Gestion d'une liste de fichier)</span></td>
+                </tr>
+                <tr>
+                    <td>Clone un système de fichier (.git)</td>
+                    <td>Checkout de dossier ou de fichier</td>
+                </tr>
+                <tr>
+                    <td>N° de révision SHA-1 <figure><img src="img/rev-git.png"/></figure></td>
+                    <td>N° de révision incrémenté <figure><img src="img/rev-svn.png"/></figure></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
-    <div class="step slide" data-x="1000" data-y="-1500">
+
+
+    <div class="step slide" data-x="1500" data-y="-1500">
+        <h1 class="slide-title">Comparaison cmd git/svn</h1>
+        <table class="comparator">
+            <thead>
+                <tr>
+                    <th>git [action]</th>
+                    <th>svn [action]</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="text-danger">
+                    <td class="text-danger">clone <em>git:repo.git</em></td>
+                    <td class="text-danger">checkout <em>svn:repo</em></td>
+                </tr>
+                <tr>
+                    <td class="text-danger">checkout <em>filename</em></td>
+                    <td class="text-danger">revert <em>filename</em></td>
+                </tr>
+                <tr>
+                    <td class="text-danger">checkout <em>branch-name</em></td>
+                    <td class="text-danger">switch <em>branch-name</em></td>
+                </tr>
+                <tr>
+                    <td class="text-danger"><em>Pas de lock. Distribué = local</em></td>
+                    <td class="text-danger">lock <em>filename</em></td>
+                </tr>
+                <tr>
+                    <td class="text-danger">pull <em>repo branch</em></td>
+                    <td class="text-danger">update</td>
+                </tr>
+                <tr>
+                    <td class="text-danger">push <em>repo branch</em></td>
+                    <td class="text-danger"><em>Pas de push : centralisé</em></td>
+                </tr>
+                <tr>
+                    <td class="text-warning">add (avant chaque commit)</td>
+                    <td class="text-warning">add (1x)</td>
+                </tr>
+                <tr>
+                    <td class="text-warning">commit</td>
+                    <td class="text-warning">commit</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="step slide" data-x="-1000" data-y="-3500" style="display: none;">
         <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
-    </div>
-
-    <!--
-        
-        This is an example of step element being scaled.
-        
-        Again, we use a `data-` attribute, this time it's `data-scale="4"`, so it means that this
-        element will be 4 times larger than the others.
-        From presentation and transitions point of view it means, that it will have to be scaled
-        down (4 times) to make it back to its correct size.
-        
-    -->
-    <div id="title" class="step" data-x="0" data-y="0" data-scale="4">
-        <span class="try">then you should try</span>
-        <h1>impress.js<sup>*</sup></h1>
-        <span class="footnote"><sup>*</sup> no rhyme intended</span>
     </div>
 
     <!--
@@ -142,13 +207,13 @@
         element should be rotated by 90 degrees clockwise.
         
     -->
-    <div id="its" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+    <div id="its" class="step" data-x="-2500" data-y="-3000" data-rotate="90" data-scale="5" style="display: none;">
         <p>It's a <strong>presentation tool</strong> <br/>
         inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
         and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
     </div>
 
-    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6">
+    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6" style="display: none;">
         <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
     </div>
 
@@ -161,7 +226,7 @@
         positioned far away from us (by 3000px).
         
     -->
-    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1">
+    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1" style="display: none;">
         <p>and <b>tiny</b> ideas</p>
     </div>
 
@@ -185,20 +250,20 @@
         Only one current step has the `present` class.
         
     -->
-    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6">
+    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6" style="display: none;">
         <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
     </div>
 
-    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6">
+    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6" style="display: none;">
         <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
     </div>
 
-    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4">
+    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4" style="display: none;">
         <p>want to know more?</p>
         <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
     </div>
 
-    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2">
+    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2" style="display: none;">
         <p>one more thing...</p>
     </div>
 
@@ -214,7 +279,7 @@
         as `data-rotate` (these two are basically aliases).
         
     -->
-    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2">
+    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2" style="display: none;">
         <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
         <span class="footnote">* beat that, prezi ;)</span>
     </div>
@@ -234,7 +299,7 @@
         CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
         
     -->
-    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10" style="display: none;">
     </div>
 
 </div>

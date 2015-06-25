@@ -5,25 +5,82 @@
 .slide-title {
     color: #005822;    
     font-size: 50px;
-    margin: 20px 0 30px 0;
+    margin: 20px 0 50px 0;
     font-weight: bold;
 }
-.slide-sub-title{
+.slide-sub-title {
     margin: 20px 0 10px 0;
     color: #4C4C4E;
     font-size: 36px;
 }
-.credits{
+.credits {
     font-size: 20px;
 }
+.details {
+    font-size: 0.6em;
+}
+.list{
+    list-style-type: square;
+}
+.illustration {
+    text-align: center;
+    background-color: white;
+    border-radius: 15px;
+    padding: 50px;
+}
+.illustration figcaption {
+    text-align: center;
+    display: block;
+}
+.text-danger {
+    color: #DC0032 !important;
+}
+.text-warning {
+    color: #E66E00 !important;
+}
+.text-success {
+    color: #008858 !important;
+}
+.comparator {
+    border: 1px solid #4C4C4E;
+    border-collapse: collapse;
+}
 
+.comparator thead th {
+    background-color: #008936;
+    color: white;
+    font-weight: bold;
+}
+.comparator th,
+.comparator td {
+    border: 1px solid #4C4C4E;
+    padding: 4px 8px;
+    width: 50%;
+}
+
+.comparator figure {
+    display: block;
+    text-align: center;
+    margin: 4px;
+}
+
+.comparator>tbody>tr:nth-child(odd) td {
+    background-color: #EBEBF0;
+    color: #4C4C4E;
+}
+.comparator>tbody>tr:nth-child(even) td {
+    background-color: rgb(203,219,206);
+    color: #4C4C4E;
+}
+
+/* page specific */
 #title-page {
     position: relative;
 }
 #title-page .slide-title {
     font-size: 80px;
 }
-#title-page .git-logo{
+#title-page .git-logo {
     position: absolute;
     right: 20%;
     bottom: 10%;
