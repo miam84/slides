@@ -11,22 +11,7 @@
     <meta name="author" content="Bartek Szopka" />
 
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
-
-    <!--
-        
-        Impress.js doesn't depend on any external stylesheets. It adds all of the styles it needs for the
-        presentation to work.
-        
-        This style below contains styles only for demo presentation. Browse it to see how impress.js
-        classes are used to style presentation steps, or how to apply fallback styles, but I don't want
-        you to use them directly in your presentation.
-        
-        Be creative, build your own. We don't really want all impress.js presentations to look the same,
-        do we?
-        
-        When creating your own presentation get rid of this file. Start from scratch, it's fun!
-        
-    -->
+    <link href="../libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="../libs/impress.js/css/impress-demo.css" rel="stylesheet" />
     <link href="custom.css" rel="stylesheet" />
     
@@ -86,7 +71,7 @@
 <div id="impress">
     
     <!-- Intro title slide -->
-    <section id="title-page" class="step" data-x="-2000" data-y="-1500" data-rotate="-90">
+    <section id="title-page" class="step" data-x="0" data-y="0" data-scale="4">
         <h1 class="slide-title">Introduction à git</h1>
         <h2 class="slide-sub-title">Outil de versionning</h2>
         <figure class="git-logo">
@@ -96,7 +81,7 @@
     </section>
 
 
-    <section class="step" data-x="1000" data-y="2000" data-scale="5">
+    <section class="step" data-x="0" data-y="5000" data-scale="3" data-rotate="90">
         <h1 class="slide-title">Philosophie git</h1>
         <ul class="list">
             <li>Dépôt distribué</li>
@@ -106,14 +91,14 @@
         </ul>
     </section>
 
-    <div class="step" data-x="2000" data-y="1000" data-rotate-x="60" data-scale="1">        
+    <div class="step" data-x="1000" data-y="5500" data-rotate-y="60" data-rotate="90" data-scale="1">        
         <figure class="illustration">
             <img src="img/distributed-repo.png" alt="Structure distribuée">
             <figcaption>Structure distribuée</figcaption>            
         </figure>
     </div>
 
-    <div class="step slide" data-x="0" data-y="-1500">
+    <section class="step slide" data-x="3000" data-y="5500" data-rotate="-90">
         <h1 class="slide-title">Comparaison avec SVN</h1>
         <table class="comparator">
             <thead>
@@ -145,11 +130,11 @@
                 </tr>
             </tbody>
         </table>
-    </div>
+    </section>
 
 
 
-    <div class="step slide" data-x="1500" data-y="-1500">
+    <section class="step slide" data-x="3000" data-y="4000" data-rotate="-90">
         <h1 class="slide-title">Comparaison cmd git/svn</h1>
         <table class="comparator">
             <thead>
@@ -188,16 +173,32 @@
                     <td class="text-warning">add (1x)</td>
                 </tr>
                 <tr>
-                    <td class="text-warning">commit</td>
-                    <td class="text-warning">commit</td>
+                    <td class="text-warning">commit (local)</td>
+                    <td class="text-warning">commit (serveur)</td>
+                </tr>                
+                <tr>
+                    <td class="text-success">diff / log / ...</td>
+                    <td class="text-success">diff / log / ...</td>
                 </tr>
             </tbody>
+            <tfoot>
+                <tr>
+                    <td><i class="fa fa-info-circle text-info"></i> <a href="https://git-scm.com/docs" target="_blank">git-scm.com/docs</a></td>
+                    <td><i class="fa fa-info-circle text-info"></i> <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.html" target="_blank">svnbook.red-bean.com/</a></td>
+                </tr>
+            </tfoot>
         </table>
-    </div>
-
-    <div class="step slide" data-x="-1000" data-y="-3500" style="display: none;">
-        <q>Would you like to <strong>impress your audience</strong> with <strong>stunning visualization</strong> of your talk?</q>
-    </div>
+    </section>
+    
+    <section class="step slide" data-x="4000" data-y="2000" data-scale="1">
+        <h1 class="slide-title">Liens utiles</h1>
+        <ul class="list">
+            <li>Download git : <a href="http://msysgit.github.io/" target="_blank">msysgit.github.io</a></li>
+            <li>Doc complète de git <em>"Git Book"</em> : <a href="https://git-scm.com/book/fr/v1" target="_blank">git-scm.com/book</a></li>
+            <li>Liste de commandes git : <a href="https://git-scm.com/docs" target="_blank">git-scm.com/docs</a></li>
+            <li>Pull de code entre développeurs : <a href="http://chris.sedlmayr.co.uk/2010-04-15/git-pull-and-git-merge-between-developers.html" target="_blank">chris.sedlmayr.co.uk</a></li>
+        </ul>
+    </section>
 
     <!--
         
@@ -205,8 +206,7 @@
         
         Notation shouldn't be a surprise. We use `data-rotate="90"` attribute, meaning that this
         element should be rotated by 90 degrees clockwise.
-        
-    -->
+    - ->
     <div id="its" class="step" data-x="-2500" data-y="-3000" data-rotate="90" data-scale="5" style="display: none;">
         <p>It's a <strong>presentation tool</strong> <br/>
         inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
@@ -225,7 +225,7 @@
         `data-z`. In the example below we use `data-z="-3000"` meaning that element should be
         positioned far away from us (by 3000px).
         
-    -->
+    - ->
     <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1" style="display: none;">
         <p>and <b>tiny</b> ideas</p>
     </div>
@@ -249,7 +249,7 @@
         So basically every step element has one of three classes: `future`, `present` and `past`.
         Only one current step has the `present` class.
         
-    -->
+    - ->
     <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6" style="display: none;">
         <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
     </div>
@@ -278,7 +278,7 @@
         You can of course rotate it around Z axis with `data-rotate-z` - it has exactly the same effect
         as `data-rotate` (these two are basically aliases).
         
-    -->
+    - ->
     <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2" style="display: none;">
         <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
         <span class="footnote">* beat that, prezi ;)</span>
@@ -299,7 +299,7 @@
         CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
         
     -->
-    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10" style="display: none;">
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="15">
     </div>
 
 </div>
