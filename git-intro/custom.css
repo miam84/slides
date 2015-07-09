@@ -32,9 +32,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fefefd', end
 .details {
     font-size: 0.6em;
 }
-.list{
-    list-style-type: square;
+.list {
     margin-left: 20px;
+}
+.list-bulletized {    
+    list-style-type: square;
 }
 .list li {
     padding: 4px 0;
