@@ -21,6 +21,7 @@
   ],
   "dependencies": {
     "impress.js": "~0.5.3",
-    "font-awesome": "~4.3.0"
+    "font-awesome": "~4.3.0",
+    "reveal.js": "^3.3.0"
   }
 }
