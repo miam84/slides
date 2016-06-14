@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Code Quality</title>
+	<link rel="stylesheet" href="../libs/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../libs/reveal.js/css/theme/black.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="reveal">
+            <div class="slides">
+                <section><h1>Code.quality();</h1></section>
+                <section>
+                	<section>
+                		<h2>IDE</h2>
+                		<img src="assets/img/ide.png" alt="IDE" />
+                	</section>
+                	
+                	<section>
+                		<h3>Utiliser la puissance des IDE</h3>
+						<ul>
+							<li class="fragment grow">Syntax correction</li>
+							<li class="fragment grow">Intellisense</li>
+							<li class="fragment grow">Raccourci clavier</li>
+							<li class="fragment grow">Refactoring</li>
+							<li class="fragment grow">Search assistant (file, méthode, variables)</li>
+							<li class="fragment grow">Code generation</li>
+							<li class="fragment grow">Cmd</li>
+						</ul>
+                	</section>
+
+                	<section>
+                		<h3>But</h3>
+						<ul>
+							<li>Favoriser le refactoring</li>
+							<li>Améliorer la qualité</li>
+							<li>Accélerer l'écriture</li>
+							<li>Augmenter la productivité</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Efficacité</h3>
+						<p>Utiliser efficacement un IDE c'est maitriser les raccourcis claviers et les fonctionnalités.</p>
+						<blockquote cite="http://codurance.com/2015/11/25/mouseless-programming/">"Mouseless programming took almost one minute less than programming with the mouse and the keyboard, which is around 15% improvement"</blockquote>
+                	</section>
+                </section>
+
+                <section>
+                	<section>
+                		<h2>Ecrire du code compréhensible</h2>
+						<blockquote>On passe environ 10x plus de temps à lire du code qu'à en écrire !</blockquote>
+					</section>
+
+					<section>
+						<h3>Les conventions de nommage</h3>
+						<p>Les conventions de nommage permettent d'identifier le type d'un élément au premier coup d'oeil.</p>
+						<ul>
+							<li>Prefix</li>
+							<li>Casing</li>
+						</ul>
+					</section>
+
+					<section>
+						<h4>Convention de nommage</h4>
+						<p>Exemple :</p>
+						<pre>
+_private // variable privée avec préfix '_'
+aParam   // préfix a pour les paramètres (arguments)
+onEvent  // préfix 'on' lors d'évènements
+IMyInterface // Interface préfixée avec un I majuscule
+						</pre>
+					</section>
+
+					<section>
+						<h4>Casse</h4>
+						<p>Exemple :</p>
+						<pre>
+CONSTANTES    // UPPER_CASE
+Class	      // Pascal case
+methodsName   // camelCase
+attribut_name // snake_case
+						</pre>
+					</section>
+
+					<section>
+						<h3>Structure de fichier</h3>
+						<ul>
+							<li>Garder le même ordre de déclaration
+								<ol>
+									<li>Private variables</li>
+									<li>Constructeurs</li>
+									<li>Propriétés Getter/Setter</li>
+									<li>Methods</li>
+								</ol>
+						  	</li>
+							<li>Découpler au maximum et splitter en fichier (class, sub class, behaviors, ...)</li>
+							<li>Architecture (design pattern, POO, ...)</li>
+						</ul>
+					</section>
+
+					<section>
+						<h3>Détecter le code a problème</h3>
+						<ul>
+							<li>Des méthodes trop longues</li>
+							<li>Des classes trop grandes</li>
+							<li>Trop de paramètres</li>
+							<li>Difficulté à lire le code</li>
+							<li>Multiple niveau d imbrication/indentation</li>
+							<li>Des objets sans méthodes (hors getter/setter ->POO)</li>
+							<li>Trop de méthode public static</li>
+							<li>Des tests trop compliqués</li>
+							<li>Si y a un doute, c est mauvais</li>
+						</ul>
+					</section>
+                </section>
+            </div>
+        </div>
+
+
+        <script src="../libs/reveal.js/js/reveal.js"></script>
+        <script>
+            Reveal.initialize();
+        </script>
+</body>
+</html>
