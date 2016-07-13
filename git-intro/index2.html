@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GIT Versioning</title>
+	<link rel="stylesheet" href="../libs/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../libs/reveal.js/css/theme/black.css">
+    <link rel="stylesheet" href="style2.css"/>
+</head>
+<body>    
+	<div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>GIT Versioning</h1>
+                <img id="git-logo" class="slide-logo" src="img/logo-git.png" alt="Logo git">
+            </section>
+            <section>
+                <section>
+                    <h1>Qu'est-ce que GIT ?</h1>
+                </section>    
+                <section>
+                    <h1>Outil de versioning</h1>
+                    <ul>
+                        <li>SVN</li>
+                        <li>CVS</li>
+                        <li>Mercurial</li>
+                    </ul>
+                </section>            
+                <section>
+                    <h1>Pourquoi GIT ?</h1>
+                    <ul>
+                        <li>Performances</li>
+                        <li>Gestion des conflits</li>
+                        <li>Local repo</li>
+                        <li>Gestion de l'historique</li>
+                        <li>Actuellement le plus répendu (support et intégration)</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Philosophie GIT</h1>
+                </section>
+                <section>
+                    <h2>Repository distribué</h2>
+                    <img src="img/distributed-repo.png" alt="Structure distribuée">
+                </section>
+                <section>
+                    <h2>Distribué VS Centralisé</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Distribué</th>
+                                <th>Centralisé</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Indépendant du réseau (latence, on-/offline,...)</td>
+                                <td>Dépendance au réseau</td>
+                            </tr>
+                            <tr>
+                                <td>Interaction serveur et/ou inter-team</td>
+                                <td>Interaction client/serveur</td>
+                            </tr>
+                            <tr>
+                                <td>Interaction local = Rapidité (log, diff,...)</td>
+                                <td>Selon les perf. réseau</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <figure>
+                                        <img src="img/distributed-repo.png" alt="Structure distribuée">
+                                        <caption>Structure distribuée</caption>
+                                    </figure>
+                                </td>
+                                <td>
+                                    <figure>
+                                        <img src="img/centralized-repo.png" alt="Structure centralisée">
+                                        <caption>Structure centralisée</caption>
+                                    </figure>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h2>Snapshot VS Version</h2>
+                    <div class="side-by-side-content">
+                        <figure>
+                            <img src="img/git-version-system.png" alt="Versioning par snapshot">
+                            <caption>Versioning par snapshot</caption>
+                        </figure>
+                        <figure>
+                            <img src="img/svn-version-system.png" alt="Versioning par fichier">
+                            <caption>Versioning par fichier</caption>
+                        </figure>
+                    </div>
+                </section>
+                <section>
+                    <h2>Snapshot VS Version</h2>
+                    <table>
+                        <tr>
+                            <td>Gestion d'un système de fichier</td>
+                            <td>Liste de fichier</td>
+                        </tr>
+                        <tr>
+                            <td>Snapshot la workspace</td>
+                            <td>Chaque modif génère une version de fichier</td>
+                        </tr>
+                        <tr>
+                            <td>Fichier non modifié = lien ref précédente</td>
+                            <td>Fichier non modifié = pas de version</td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>File System</h1>
+                </section>
+                <section>
+                    <h2>Dossier .git</h2>
+                    <ul>
+                        <li>Méta-données du projet (config,...)</li>
+                        <li>Réf. pour un clone from host</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Fichier .gitignore</h2>
+                    <p>Liste de dossiers/fichiers à ne pas tracker</p>
+                </section>
+                <section>
+                    <h2>Global .gitconfig</h2>
+                    <ul>
+                        <li>Fichier de configuration global de git</li>
+                        <li>Hors projet = User config inter-repos</li>
+                        <li>Unix = ~/.gitconfig</li> 
+                        <li>Windows = C:/Users/&lt;<i>name</i>&gt;.gitconfig/</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Project .gitconfig</h2>
+                    <ul>
+                        <li>Config git spécifique au projet (override global config)</li>
+                        <li>$projectPath/.git/.gitconfig</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>.gitconfig</h1>
+                </section>
+                <section>
+                    <h2>Aliases</h2>
+                    <p>Permet de créer des raccourcis de commandes</p>
+                    <ul>
+                        <li>Commandes (st = status, cm = commit, ...)</li>
+                        <li>Targets (o = origin, m = master,...)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>User informations</h2>
+                    <ul>
+                        <li>Username</li>
+                        <li>Email</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Aliases</h2>
+                    <p>Permet de créer des raccourcis de commandes</p>
+                    <ul>
+                        <li>Commandes (st = status, cm = commit, ...)</li>
+                        <li>Targets (o = origin, m = master,...)</li>
+                    </ul>
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    <h1>Git Flow</h1>                    
+                </section>
+                <section>
+                    <figure class="stretch">
+                        <img src="img/git-flow.png" alt="Git Flow"/>
+                    </figure>
+                </section>
+                <section>
+                    <h2>Master</h2>
+                    <ul>
+                        <li>Stable</li>
+                        <li>Déployé en PROD</li>
+                        <li>Pas de commit direct</li>
+                        <li>Merge de release ou hotfix</li>
+                    </ul>
+                </section>
+                <section>                    
+                    <h2>Develop</h2>
+                    <ul>
+                        <li>Branche de développement</li>
+                        <li>Source = master</li>
+                        <li>Pas de commit direct</li>
+                        <li>Merge de features, bugfixes et hotfixes</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Feature branch</h2>
+                    <ul>
+                        <li>Nouvelle fonctionnalité</li>
+                        <li>Source = develop | features branch</li>
+                        <li>Target = parent branch</li>
+                        <li>Commit direct</li>
+                        <li>Merge de branch enfant et/ou parent</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Release branch</h2>
+                    <ul>
+                        <li>Stabilisation de release</li>
+                        <li>Plus de développement (bugfix excepté et a merger dans develop)</li>
+                        <li>Target = master pour déploiement</li>
+                        <li>Commit direct pour bugfix uniquement</li>
+                        <li>Bugfix lourd = abandon de la branche</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Hotfix</h2>
+                    <ul>
+                        <li>Bugfix sévère sur production</li>
+                        <li>Source = master</li>
+                        <li>Target = master + develop</li>
+                        <li>Commit direct</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Tag</h2>
+                    <ul>
+                        <li>Tag de version déployée</li>
+                        <li>Source = master</li>
+                        <li>Semantic versioning (<a href="http://semver.org/">semver.org</a>)</li>
+                    </ul>
+                </section>
+            </section>
+        </div>
+	</div>
+
+    
+    <script src="../libs/reveal.js/js/reveal.js"></script>
+    <script>
+        Reveal.initialize();
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+#git-logo {
+    background-color: white;
+    border-radius: 5px;
+}
+.reveal .slide-logo {
+    background: none;
+    border: 0 none;
+    box-shadow: none;
+}
+.side-by-side-content {
+    display: flex;
+    align-items: baseline;
+}
