@@ -11,3 +11,15 @@
     display: flex;
     align-items: baseline;
 }
+.reveal code {
+    background-color: white;
+    color: #000;
+    display: block;
+    font-size: 1.8rem;
+    padding: 5px 10px;
+    text-align: left;
+}
+.reveal code.inline {
+    display: inline-block;
+    margin: 0 10px;
+}
