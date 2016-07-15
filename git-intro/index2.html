@@ -241,6 +241,99 @@
                     </ul>
                 </section>
             </section>
+            <section>
+                <section>
+                    <h1>Les commandes de base</h1>
+                </section>
+                <section>
+                    <h2>git init</h2>
+                    <p>Initialise un projet git local</p>
+                    <code>git init</code>
+                    <br/>
+                    
+                    <h2>git clone</h2>
+                    <p>Clone le projet à partir d'un repo existant</p>
+                    <code>git clone &lt;repo-url&gt;</code>
+                </section>
+                <section>
+                    <h2>git status</h2>
+                    <p>Etat de versioning</p>
+                    <code>git status</code>
+                    <br/>
+
+                    <h2>git log</h2>
+                    <p>Affiche le log des commits</p>
+                    <code>git log</code>
+                    <br/>
+                </section>
+                <section>
+                    <h2>git add</h2>    
+                    <p>Ajoute les fichiers au système de versioning</p>
+                    <code>git add &lt;filename&gt; [&lt;filename&gt;...]</code>
+                    <br/>
+
+                    <h2>git commit</h2>
+                    <p>Versionne le fichiers</p>
+                    <ul>
+                        <li>En local</li>
+                        <li>-m => ajoute un message (requis !)</li>
+                        <li>-a => ajoute tous les fichiers modifiés</li>
+                    </ul>
+                    <code>git commit &lt;filename&gt; [&lt;filename&gt;...] [-a|-m|...] [message]</code>
+                </section>
+                <section>
+                    <h2>git diff</h2>
+                    <p>Affiche le diff entre 2 versions</p>
+                    <code>git diff [&lt;revision&gt;] &lt;path&gt;</code>
+                </section>
+                <section>
+                    <h2>git checkout</h2>
+                    <ul>
+                        <li>Annule les modifications d'un fichier</li>
+                        <li>Aussi utilisé pour switcher la branche courante</li>
+                    </ul>
+                    <code>git checkout &lt;filename&gt; [&lt;filename&gt;...]</code> 
+                </section>
+                <section>
+                    <h2>git stash</h2>
+                    <p>Remisage de travail en cours</p>
+                    <code>git stash &lt;save | show | pop&gt;</code>
+                    <br/>
+
+                    <h2>git bisect</h2>
+                    <ul>
+                        <li>Permet de trouver un bug</li>
+                        <li>Bisect &rarr; Tests &rarr; good|bad</li>
+                        <li>Jeu : trouve un nombre entre x et y</li>
+                    </ul>
+                    <code>git bisect &lt;start | good | bad | reset&gt;</code>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Les commandes de branching</h1>
+                </section>
+                <section>
+                    <h2>git branch</h2>
+                    <br/>
+                    <h2>git checkout</h2>
+                </section>
+                <section>
+                    <h2>git merge</h2>
+                    <br/>
+                    <h2>git rebase</h2>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Les commandes de repository</h1>
+                </section>
+                <section>
+                    <h2>git fetch</h2>
+                    <br/>
+                    <h2>git pull</h2>
+                </section>
+            </section>
         </div>
 	</div>
 
