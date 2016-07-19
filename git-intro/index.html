@@ -1,361 +1,518 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=1024" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <title>Introduction à git</title>
-    
-    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com." />
-    <meta name="author" content="Bartek Szopka" />
-
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
-    <link href="../libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="../libs/impress.js/css/impress-demo.css" rel="stylesheet" />
-    <link href="custom.css" rel="stylesheet" />
-    
-    <link rel="shortcut icon" href="../libs/impress.js/favicon.png" />
-    <link rel="apple-touch-icon" href="../libs/impress.jsapple-touch-icon.png" />
+    <meta charset="UTF-8">
+    <title>GIT Versioning</title>
+	<link rel="stylesheet" href="../libs/reveal.js/css/reveal.css">
+    <link rel="stylesheet" href="../libs/reveal.js/css/theme/black.css">
+    <link rel="stylesheet" href="style.css"/>
 </head>
+<body>    
+	<div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>GIT Versioning</h1>
+                <img id="git-logo" class="slide-logo" src="img/logo-git.png" alt="Logo git">
+            </section>
+            <section>
+                <section>
+                    <h1>Qu'est-ce que GIT ?</h1>                    
+                </section>    
+                <section>
+                    <h1>Outil de versioning</h1>
+                    <ul>
+                        <li>SVN</li>
+                        <li>CVS</li>
+                        <li>Mercurial</li>
+                    </ul>
+                </section>            
+                <section>
+                    <h1>Pourquoi GIT ?</h1>
+                    <ul>
+                        <li>Performances</li>
+                        <li>Gestion des conflits</li>
+                        <li>Local repo</li>
+                        <li>Gestion de l'historique</li>
+                        <li>Actuellement le plus répandu (support et intégration)</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Philosophie GIT</h1>
+                    <img src="img/dafuq.jpg" alt="dafuq">
+                </section>
+                <section>
+                    <h2>Repository distribué</h2>
+                    <img src="img/distributed-repo.png" alt="Structure distribuée">
+                </section>
+                <section>
+                    <h2>Distribué VS Centralisé</h2>                    
+                    <div class="side-by-side-content">
+                        <figure>
+                            <img src="img/distributed-repo.png" alt="Structure distribuée">
+                            <caption>Structure distribuée</caption>
+                        </figure>
+                        <figure>
+                            <img src="img/centralized-repo.png" alt="Structure centralisée">
+                            <caption>Structure centralisée</caption>
+                        </figure>
+                    </div>
+                </section>
+                <section>
+                    <h2>Distribué VS Centralisé</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Distribué</th>
+                                <th>Centralisé</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Indépendant du réseau <br/>(latence, on-/offline,...)</td>
+                                <td>Dépendance au réseau</td>
+                            </tr>
+                            <tr>
+                                <td>Client - serveur + inter-user</td>
+                                <td>Client - serveur</td>
+                            </tr>
+                            <tr>
+                                <td>Interaction locale<br/>= Rapidité (log, diff,...)</td>
+                                <td>Selon les perf. réseau</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                <section>
+                    <h2>Snapshot de version</h2>                    
+                    <img src="img/git-version-system.png" alt="Versioning par snapshot">
+                </section>
+                <section>
+                    <h2>Snapshot VS <br/>versioning de fichier</h2>
+                    <div class="side-by-side-content">
+                        <figure>
+                            <img src="img/git-version-system.png" alt="Versioning par snapshot">
+                            <caption>Versioning par snapshot</caption>
+                        </figure>
+                        <figure>
+                            <img src="img/svn-version-system.png" alt="Versioning par fichier">
+                            <caption>Versioning par fichier</caption>
+                        </figure>
+                    </div>
+                </section>
+                <section>
+                    <h2>Snapshot VS Version</h2>
+                    <table>
+                        <tr>
+                            <td>Gestion d'un système de fichier</td>
+                            <td>Liste de fichier</td>
+                        </tr>
+                        <tr>
+                            <td>Snapshot la workspace</td>
+                            <td>Chaque modif génère une version de fichier</td>
+                        </tr>
+                        <tr>
+                            <td>Fichier non modifié = lien ref précédente</td>
+                            <td>Fichier non modifié = pas de version</td>
+                        </tr>
+                    </table>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>File System</h1>
+                    <img src="img/git-folders.png" alt="Dossier .git">
+                </section>
+                <section>
+                    <h2>Dossier .git</h2>
+                    <ul>
+                        <li>Méta-données du projet (config,...)</li>
+                        <li>Réf. pour un clone from host</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Fichier .gitignore</h2>
+                    <p>Liste de dossiers/fichiers à ne pas tracker</p>
+                </section>
+                <section>
+                    <h2>Hooks</h2>
+                    <ul>
+                        <li>Tâches automatisées</li>
+                        <li>Configuré par command
+                            <ul>
+                                <li>commit</li>
+                                <li>push</li>
+                                <li>update</li>
+                                <li>...</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>.gitconfig</h1>
+                    <pre><code>
+[core]
+    repositoryformatversion = 0
+    filemode = false
+    bare = false
+    logallrefupdates = true
+    symlinks = false
+    ignorecase = true
+    hideDotFiles = dotGitOnly
+[remote "origin"]
+    url = https://github.com/john-doh/foo.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+[credential]
+    helper = store
+[branch "develop"]
+    remote = origin
+    merge = refs/heads/develop
+                    </code></pre>
+                </section>
+                <section>
+                    <h2>Aliases</h2>
+                    <p>Permet de créer des raccourcis de commandes</p>
+                    <ul>
+                        <li>Commandes (st = status, cm = commit, ...)</li>
+                        <li>Targets (o = origin, m = master, ...)</li>
+                    </ul>
+                    <code>git config –global alias.st status</code>
+                </section>
+                <section>
+                    <h2>Informations de projet et d'utilisateur</h2>
+                    <ul>
+                        <li>Nom d'utilisateur</li>
+                        <li>Email</li>
+                        <li>Ref. de branches</li>
+                        <li>Type de protocole (https://, git://, ...)</li>
+                    </ul>
+                </section>                
+                <section>
+                    <h2>Config globale</h2>
+                    <ul>
+                        <li>.gitconfig</li>
+                        <li>Fichier de configuration global de git</li>
+                        <li>User config partagée pour tous repo</li>
+                        <li>Unix = ~/.gitconfig</li> 
+                        <li>Windows = C:/Users/&lt;<i>name</i>&gt;/.gitconfig/</li>
+                    </ul>
+                    <code>git config –global &lt;cmd&gt;</code>
+                </section>
+                <section>
+                    <h2>Config de projet</h2>
+                    <ul>
+                        <li>.git/config</li>
+                        <li>Config git spécifique au projet (priorité sur global config)</li>
+                        <li>&lt;projectPath&gt;/.git/config</li>
+                    </ul>                    
+                    <code>git config &lt;cmd&gt;</code>
+                </section>
+            </section>
 
-<!--
+            <section>
+                <section>
+                    <h1>Git Flow</h1>
+                    <img src="img/git-flow-title.png" alt="Illustration git flow">
+                </section>
+                <section>
+                    <figure class="stretch">
+                        <img src="img/git-flow-h.png" alt="Git Flow présentation horizontale"/>
+                    </figure>
+                </section>
+                <section>
+                    <h2>Master</h2>
+                    <ul>
+                        <li>Stable</li>
+                        <li>Déployé en PROD</li>
+                        <li>Pas de commit direct</li>
+                        <li>Merge de release ou hotfix</li>
+                    </ul>
+                </section>
+                <section>                    
+                    <h2>Develop</h2>
+                    <ul>
+                        <li>Branche de développement</li>
+                        <li>Source = master</li>
+                        <li>Pas de commit direct</li>
+                        <li>Merge de features, bugfixes et hotfixes</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Feature branch</h2>
+                    <ul>
+                        <li>Nouvelle fonctionnalité</li>
+                        <li>Source = develop | features branch</li>
+                        <li>Target = parent branch</li>
+                        <li>Commit direct</li>
+                        <li>Merge de branch enfant et/ou parent</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Release branch</h2>
+                    <ul>
+                        <li>Stabilisation de release</li>
+                        <li>Plus de développement (bugfix excepté et a merger dans develop)</li>
+                        <li>Target = master pour déploiement</li>
+                        <li>Commit direct pour bugfix uniquement</li>
+                        <li>Bugfix lourd = abandon de la branche</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Hotfix</h2>
+                    <ul>
+                        <li>Bugfix sévère sur production</li>
+                        <li>Source = master</li>
+                        <li>Target = master + develop</li>
+                        <li>Commit direct</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Tag</h2>
+                    <ul>
+                        <li>Tag de version déployée</li>
+                        <li>Source = master</li>
+                        <li>Semantic versioning (<a href="http://semver.org/">semver.org</a>)</li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Les commandes de base</h1>
+                    <img src="img/git-cmd-title.png" alt="git bash">
+                </section>
+                <section>
+                    <h2>git init</h2>
+                    <p>Initialise un projet git local</p>
+                    <code>git init</code>
+                    <br/>
+                    
+                    <h2>git clone</h2>
+                    <p>Clone le projet à partir d'un repo existant</p>
+                    <code>git clone &lt;repo-url&gt;</code>
+                </section>
+                <section>
+                    <h2>git status</h2>
+                    <p>Etat de versioning</p>
+                    <code>git status</code>
+                    <br/>
+
+                    <h2>git log</h2>
+                    <p>Affiche le log des commits</p>
+                    <code>git log</code>
+                    <br/>
+                </section>
+                <section>
+                    <h2>git add</h2>    
+                    <p>Ajoute les fichiers au système de versioning</p>
+                    <code>git add &lt;filename&gt; [&lt;filename&gt;...]</code>
+                    <br/>
+
+                    <h2>git commit</h2>
+                    <p>Versionne le fichiers</p>
+                    <ul>
+                        <li>En local</li>
+                        <li>-m => ajoute un message (requis !)</li>
+                        <li>-a => ajoute tous les fichiers modifiés</li>
+                    </ul>
+                    <code>git commit &lt;filename&gt; [&lt;filename&gt;...] [-a|-m|...] [message]</code>
+                </section>                
+                <section>
+                    <h2>git diff</h2>
+                    <p>Affiche le diff entre 2 versions</p>
+                    <code>git diff [&lt;revision&gt;] &lt;path&gt;</code>
+                </section>
+                <section>
+                    <h2>git checkout</h2>
+                    <ul>
+                        <li>Annule les modifications d'un fichier</li>
+                        <li>Aussi utilisé pour switcher la branche courante</li>
+                    </ul>
+                    <code>git checkout &lt;filename&gt; [&lt;filename&gt;...]</code> 
+                </section>
+                <section>
+                    <h2>git stash</h2>
+                    <p>Remisage de travail en cours</p>
+                    <code>git stash &lt;save | show | pop&gt;</code>
+                    <br/>
+
+                    <h2>git bisect</h2>
+                    <ul>
+                        <li>Permet de trouver un bug</li>
+                        <li>Bisect &rarr; Tests &rarr; good|bad</li>
+                        <li>Jeu : trouve un nombre entre x et y</li>
+                    </ul>
+                    <code>git bisect &lt;start | good | bad | reset&gt;</code>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Les commandes de branching</h1>
+                    <img src="img/branch-all-the-things.jpg" alt="git branching cmd">
+                </section>
+                <section>
+                    <h1>TODO</h1>
+                    <h2>git branch</h2>
+                    <br/>
+                    <h2>git checkout</h2>
+                </section>
+                <section>
+                    <h1>TODO</h1>
+                    <h2>git merge</h2>
+                    <br/>
+                    <h2>git rebase</h2>
+                </section>
+                <section>
+                    <h1>TODO</h1>
+                    <h2>Merge VS Rebase</h2>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Les commandes de repository</h1>
+                </section>
+                <section>
+                    <h2>git push</h2>
+                    <code>git push &lt;repo&gt; &lt;branch&gt;</code>
+                </section>
+                <section>
+                    <h2>git fetch</h2>
+                    <p>Download objets et références d'un autre repository</p>
+                    <code>git fetch [&lt;repo&gt; &lt;branch&gt;]</code>
+                    <br/>
+                    <h2>git pull</h2>
+                    <code>git pull [&lt;repo&gt; &lt;branch&gt;]</code>
+                </section>
+                <section>
+                    <h1>TODO</h1>
+                    <h2>fetch VS pull</h2>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Pull Request & Code Reviews</h1>
+                    <img src="img/grandma-wtf.jpg" alt="grandma wtf">
+                </section>
+                <section>
+                    <h2>Pull request</h2>
+                    <ul>
+                        <li>Permet de notifier le team d'une fin de développpement</li>
+                        <li>Offre un lieu de discussion du code</li>
+                        <li>Correction du code avec suivi</li>
+                        <li>Permet de rapatrier la nouvelle fonctionalité dans la branche de destination</li>
+                    </ul>
+                    <code>git request-pull &lt;start&gt; &lt;url&gt;</code>
+                    <code>git request-pull v1.0 https://git.ko.xz/project master</code>
+                </section>
+                <section>
+                    <h1>TODO</h1>
+                    <h2>Revue de code</h2>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>WorkFlow idéal</h2>
+                    <ol>
+                        <li>Branche de nouvelle fonctionnalité (développeur)</li>
+                        <li>Testing du code créé (développeur)</li>
+                        <li>Push du code sur le repo public (développeur)</li>
+                        <li>Pull request (développeur)</li>
+                        <li>Discussion et ajustement du code (Team)</li>
+                        <li>Merge de la fonctionnalité (Le lead dev ou responsable projet)</li>
+                        <li>Fermeture de la pull request (Le lead dev ou responsable projet)</li>
+                    </ol>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Outils</h1>
+                    <img src="img/tools.jpg" alt="Outils">
+                </section>
+                <section>
+                    <h2>git bash</h2>
+                    <p>Bash git avec possible intégration des cmd linux de base</p>
+                    <img src="img/logo-git-bash.png" alt="Logo Git Bash"/>
+                    <p><a href="https://git-for-windows.github.io/">git-for-windows.github.io</a></p>
+                </section>
+                <section>
+                    <h2>SourceTree</h2>
+                    <p>Outils graphique de gestion de versioning (by Atlassian)</p>
+                    <img src="img/logo-sourcetree.png" alt="Logo SourceTree"/>
+                    <p><a href="https://www.sourcetreeapp.com/">www.sourcetreeapp.com</a></p>
+                </section>
+                <section>
+                    <h2>GitKraken</h2>
+                    <p>Outils graphique de gestion de versioning (by Axosoft)</p>
+                    <img src="img/logo-gitkraken.png" alt="Logo GitKraken"/>
+                    <p><a href="https://www.gitkraken.com/">www.gitkraken.com</a></p>
+                </section>
+                <section>
+                    <h2>Github Desktop</h2>
+                    <p>Outils graphique de gestion de versioning (by Github)</p>
+                    <img src="img/logo-github-desktop.png" alt="Logo Github Desktop"/>
+                    <p><a href="https://desktop.github.com/">desktop.github.com</a></p>
+                </section>
+                <section>
+                    <h2>UnGit</h2>
+                    <p>Outil web de gestion de versioning basé sur NodeJS</p>
+                    <img src="img/logo-ungit.png" alt="Logo UnGit"/>
+                    <p><a href="https://github.com/FredrikNoren/ungit">github.com/FredrikNoren/ungit</a></p>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Hébergement de repository</h1>
+                    <ul>
+                        <li><a href="https://github.com/">github.com</a></li>
+                        <li><a href="https://bitbucket.org/">bitbucket.org</a> (Atlassian)</li>
+                        <li><a href="https://www.visualstudio.com/">visualstudio.com</a> Microsoft Team Foundation</li>
+                        <li><a href="https://www.assembla.com">assembla.com</a></li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Références</h1>
+                </section>
+                <section>
+                    <h2>Ressources Git</h2>
+                    <ul>
+                        <li>Download : <a href="http://msysgit.github.io">msysgit.github.io</a></li>
+                        <li>Git book : <a href="http://git-scm.com/book/fr/v1">git-scm.com/book/fr/v1</a></li>
+                        <li>Tuto github : <a href="https://try.github.io">Try github.io</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Projets</h2>
+                    <p>Metro git</p>
+                    <img src="img/metro-git.png" alt="Screenshot MetroGit"/>
+                    <p><a href="https://github.com/vbarbaresi/MetroGit">https://github.com/vbarbaresi/MetroGit</a></p>
+                </section>
+            </section>
+        </div>
+	</div>
+
     
-    Body element is used by impress.js to set some useful class names, that will allow you to detect
-    the support and state of the presentation in CSS or other scripts.
-    
-    First very useful class name is `impress-not-supported`. This class means, that browser doesn't
-    support features required by impress.js, so you should apply some fallback styles in your CSS.
-    It's not necessary to add it manually on this element. If the script detects that browser is not
-    good enough it will add this class, but keeping it in HTML means that users without JavaScript
-    will also get fallback styles.
-    
-    When impress.js script detects that browser supports all required features, this class name will
-    be removed.
-    
-    The class name on body element also depends on currently active presentation step. More details about
-    it can be found later, when `hint` element is being described.
-    
--->
-<body class="impress-not-supported">
+    <script src="../libs/reveal.js/lib/js/head.min.js"></script>
+    <script src="../libs/reveal.js/js/reveal.js"></script>
+    <script>
+        var revealPlugins = '../libs/reveal.js/plugin/'
+        Reveal.initialize({
+            dependencies: [
+                // Zoom in and out with Alt+click
+                {
+                    src: revealPlugins + 'zoom-js/zoom.js',
+                    async: true
+                }
 
-<!--
-    For example this fallback message is only visible when there is `impress-not-supported` class on body.
--->
-<div class="fallback-message">
-    <p>Ce navigateur <b>ne supporte pas les fonctionnalités</b> nécessaire à l'affichage de ce slideshow, vous avec donc accès à un version simplifiée.</p>
-    <p>Pensez à mettre à jour votre navigateur vers une version plus récente (ex: <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b>).</p>
-</div>
-
-<!--
-    
-    Now that's the core element used by impress.js.
-    
-    That's the wrapper for your presentation steps. In this element all the impress.js magic happens.
-    It doesn't have to be a `<div>`. Only `id` is important here as that's how the script find it.
-    
-    You probably won't need it now, but there are some configuration options that can be set on this element.
-    
-    To change the duration of the transition between slides use `data-transition-duration="2000"` giving it
-    a number of ms. It defaults to 1000 (1s).
-    
-    You can also control the perspective with `data-perspective="500"` giving it a number of pixels.
-    It defaults to 1000. You can set it to 0 if you don't want any 3D effects.
-    If you are willing to change this value make sure you understand how CSS perspective works:
-    https://developer.mozilla.org/en/CSS/perspective
-    
-    But as I said, you won't need it for now, so don't worry - there are some simple but interesting things
-    right around the corner of this tag ;)
-    
--->
-<div id="impress">
-    
-    <!-- Intro title slide -->
-    <section id="title-page" class="step" data-x="0" data-y="0" data-scale="4">
-        <h1 class="slide-title">Introduction à git</h1>
-        <h2 class="slide-sub-title">Outil de versionning</h2>
-        <figure class="git-logo">
-            <img src="img/logo-git.png" alt="logo git"/>
-        </figure>
-        <p class="credits">Yann LERJEN - 2015</p>
-    </section>
-
-
-    <section class="step" data-x="0" data-y="5000" data-scale="3" data-rotate="90">
-        <h1 class="slide-title"><i class="fa fa-book"></i> Philosophie git</h1>
-        <ul class="list list-bulletized">
-            <li>Dépôt distribué</li>
-            <li>Philosophie axée sur les branches</li>
-            <li>Code quality (reviewing)</li>
-            <li>Participatif (pull request, fork)</li>
-            <li>Rapidité d'opération</li>
-        </ul>
-    </section>
-
-    <div class="step" data-x="1000" data-y="5500" data-rotate-y="60" data-rotate="90" data-scale="1">        
-        <figure class="illustration">
-            <img src="img/distributed-repo.png" alt="Structure distribuée">
-            <figcaption>Structure distribuée</figcaption>            
-        </figure>
-    </div>
-
-    <section class="step slide" data-x="3000" data-y="5500" data-rotate="-90">
-        <h1 class="slide-title"><i class="fa fa-comments-o"></i> Comparaison avec SVN</h1>
-        <table class="comparator">
-            <thead>
-                <tr>
-                    <th>git</th>
-                    <th>svn</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Dépôt distribué</td>
-                    <td>Dépôt centralisé</td>
-                </tr>
-                <tr>
-                    <td>Opérations locales</td>
-                    <td>Opérations sur serveur</td>
-                </tr>
-                <tr>
-                    <td>Snapshot<br/><span class="details">(Gestion d'un système de fichier)</span></td>
-                    <td>Version<br/><span class="details">(Gestion d'une liste de fichier)</span></td>
-                </tr>
-                <tr>
-                    <td>Clone un système de fichier (.git)</td>
-                    <td>Checkout de dossier ou de fichier</td>
-                </tr>
-                <tr>
-                    <td>N° de révision SHA-1 <figure><img src="img/rev-git.png"/></figure></td>
-                    <td>N° de révision incrémenté <figure><img src="img/rev-svn.png"/></figure></td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-
-
-    <section class="step slide" data-x="3000" data-y="4000" data-rotate="-90">
-        <h1 class="slide-title"><i class="fa fa-terminal"></i> Comparaison cmd git/svn</h1>
-        <table class="comparator">
-            <thead>
-                <tr>
-                    <th>git [action]</th>
-                    <th>svn [action]</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr class="text-danger">
-                    <td class="text-danger">clone <em>git:repo.git</em></td>
-                    <td class="text-danger">checkout <em>svn:repo</em></td>
-                </tr>
-                <tr>
-                    <td class="text-danger">checkout <em>filename</em></td>
-                    <td class="text-danger">revert <em>filename</em></td>
-                </tr>
-                <tr>
-                    <td class="text-danger">checkout <em>branch-name</em></td>
-                    <td class="text-danger">switch <em>branch-name</em></td>
-                </tr>
-                <tr>
-                    <td class="text-danger"><em>Pas de lock. Distribué = local</em></td>
-                    <td class="text-danger">lock <em>filename</em></td>
-                </tr>
-                <tr>
-                    <td class="text-danger">pull <em>repo branch</em></td>
-                    <td class="text-danger">update</td>
-                </tr>
-                <tr>
-                    <td class="text-danger">push <em>repo branch</em></td>
-                    <td class="text-danger"><em>Pas de push : centralisé</em></td>
-                </tr>
-                <tr>
-                    <td class="text-warning">add (avant chaque commit)</td>
-                    <td class="text-warning">add (1x)</td>
-                </tr>
-                <tr>
-                    <td class="text-warning">commit (local)</td>
-                    <td class="text-warning">commit (serveur)</td>
-                </tr>                
-                <tr>
-                    <td class="text-success">diff / log / ...</td>
-                    <td class="text-success">diff / log / ...</td>
-                </tr>
-            </tbody>
-            <tfoot>
-                <tr>
-                    <td><i class="fa fa-info-circle text-info"></i> <a href="https://git-scm.com/docs" target="_blank">git-scm.com/docs</a></td>
-                    <td><i class="fa fa-info-circle text-info"></i> <a href="http://svnbook.red-bean.com/en/1.7/svn.ref.html" target="_blank">svnbook.red-bean.com/</a></td>
-                </tr>
-            </tfoot>
-        </table>
-    </section>
-    
-    <section class="step slide" data-x="3000" data-y="2500" data-rotate="-90">
-        <h1 class="slide-title"><i class="fa fa-check"></i> Avantages</h1>
-        <ul class="list fa-ul">
-            <li><i class="fa-li fa fa-check"></i> Philosophie de branches</li>
-            <li><i class="fa-li fa fa-check"></i> Rapidité d’exécution (exécution local)</li>
-            <li><i class="fa-li fa fa-check"></i> Favorise la qualité du code (Code review integré : pull request)</li>
-            <li><i class="fa-li fa fa-check"></i> Commit partiel (split de commit pour un même fichier)</li>
-            <li><i class="fa-li fa fa-check"></i> Repo local (offline work, branche temporaire local,...)</li>
-            <li><i class="fa-li fa fa-check"></i> Travaux concurrents simple (git stash ou commit local)</li>
-            <li><i class="fa-li fa fa-check"></i> Permet le partage exclusif (Dev to dev sans passer par l'origin)</li>
-            <li><i class="fa-li fa fa-check"></i> Merge efficace (meilleurs gestion de conflits)</li>
-            <li><i class="fa-li fa fa-check"></i> Pas de Tree Conflict (SVN)</li>
-        </ul>
-    </section>
-    
-    <section class="step slide" data-x="4000" data-y="2000" data-scale="1">
-        <h1 class="slide-title"><i class="fa fa-link"></i> Liens utiles</h1>
-        <ul class="list list-bulletized">
-            <li>Download git : <a href="http://msysgit.github.io/" target="_blank">msysgit.github.io</a></li>
-            <li>Doc complète de git <em>"Git Book"</em> : <a href="https://git-scm.com/book/fr/v1" target="_blank">git-scm.com/book</a></li>
-            <li>Liste de commandes git : <a href="https://git-scm.com/docs" target="_blank">git-scm.com/docs</a></li>
-            <li>Pull de code entre développeurs : <a href="http://chris.sedlmayr.co.uk/2010-04-15/git-pull-and-git-merge-between-developers.html" target="_blank">chris.sedlmayr.co.uk</a></li>
-        </ul>
-    </section>
-
-    <!--
-        
-        This element introduces rotation.
-        
-        Notation shouldn't be a surprise. We use `data-rotate="90"` attribute, meaning that this
-        element should be rotated by 90 degrees clockwise.
-    - ->
-    <div id="its" class="step" data-x="-2500" data-y="-3000" data-rotate="90" data-scale="5" style="display: none;">
-        <p>It's a <strong>presentation tool</strong> <br/>
-        inspired by the idea behind <a href="http://prezi.com">prezi.com</a> <br/>
-        and based on the <strong>power of CSS3 transforms and transitions</strong> in modern browsers.</p>
-    </div>
-
-    <div id="big" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="6" style="display: none;">
-        <p>visualize your <b>big</b> <span class="thoughts">thoughts</span></p>
-    </div>
-
-    <!--
-        
-        And now it gets really exciting! We move into third dimension!
-        
-        Along with `data-x` and `data-y`, you can define the position on third (Z) axis, with
-        `data-z`. In the example below we use `data-z="-3000"` meaning that element should be
-        positioned far away from us (by 3000px).
-        
-    - ->
-    <div id="tiny" class="step" data-x="2825" data-y="2325" data-z="-3000" data-rotate="300" data-scale="1" style="display: none;">
-        <p>and <b>tiny</b> ideas</p>
-    </div>
-
-    <!--
-        
-        This step here doesn't introduce anything new when it comes to data attributes, but you
-        should notice in the demo that some words of this text are being animated.
-        It's a very basic CSS transition that is applied to the elements when this step element is
-        reached.
-        
-        At the very beginning of the presentation all step elements are given the class of `future`.
-        It means that they haven't been visited yet.
-        
-        When the presentation moves to given step `future` is changed to `present` class name.
-        That's how animation on this step works - text moves when the step has `present` class.
-        
-        Finally when the step is left the `present` class is removed from the element and `past`
-        class is added.
-        
-        So basically every step element has one of three classes: `future`, `present` and `past`.
-        Only one current step has the `present` class.
-        
-    - ->
-    <div id="ing" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="6" style="display: none;">
-        <p>by <b class="positioning">positioning</b>, <b class="rotating">rotating</b> and <b class="scaling">scaling</b> them on an infinite canvas</p>
-    </div>
-
-    <div id="imagination" class="step" data-x="6700" data-y="-300" data-scale="6" style="display: none;">
-        <p>the only <b>limit</b> is your <b class="imagination">imagination</b></p>
-    </div>
-
-    <div id="source" class="step" data-x="6300" data-y="2000" data-rotate="20" data-scale="4" style="display: none;">
-        <p>want to know more?</p>
-        <q><a href="http://github.com/bartaz/impress.js">use the source</a>, Luke!</q>
-    </div>
-
-    <div id="one-more-thing" class="step" data-x="6000" data-y="4000" data-scale="2" style="display: none;">
-        <p>one more thing...</p>
-    </div>
-
-    <!--
-        
-        And the last one shows full power and flexibility of impress.js.
-        
-        You can not only position element in 3D, but also rotate it around any axis.
-        So this one here will get rotated by -40 degrees (40 degrees anticlockwise) around X axis and
-        10 degrees (clockwise) around Y axis.
-        
-        You can of course rotate it around Z axis with `data-rotate-z` - it has exactly the same effect
-        as `data-rotate` (these two are basically aliases).
-        
-    - ->
-    <div id="its-in-3d" class="step" data-x="6200" data-y="4300" data-z="-100" data-rotate-x="-40" data-rotate-y="10" data-scale="2" style="display: none;">
-        <p><span class="have">have</span> <span class="you">you</span> <span class="noticed">noticed</span> <span class="its">it's</span> <span class="in">in</span> <b>3D<sup>*</sup></b>?</p>
-        <span class="footnote">* beat that, prezi ;)</span>
-    </div>
-
-    <!--
-        
-        So to summarize of all the possible attributes used to position presentation steps, we have:
-        
-        * `data-x`, `data-y`, `data-z` - they define the position of **the center** of step element on
-            the canvas in pixels; their default value is 0;
-        * `data-rotate-x`, `data-rotate-y`, 'data-rotate-z`, `data-rotate` - they define the rotation of
-            the element around given axis in degrees; their default value is 0; `data-rotate` and `data-rotate-z`
-            are exactly the same;
-        * `data-scale` - defines the scale of step element; default value is 1
-        
-        These values are used by impress.js in CSS transformation functions, so for more information consult
-        CSS transfrom docs: https://developer.mozilla.org/en/CSS/transform
-        
-    -->
-    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="15">
-    </div>
-
-</div>
-
-
-<div class="hint">
-    <p>Use a spacebar or arrow keys to navigate</p>
-</div>
-<script>
-if ("ontouchstart" in document.documentElement) { 
-    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
-}
-</script>
-<script src="../libs/impress.js/js/impress.js"></script>
-<script>impress().init();</script>
-
-<!--
-    
-    The `impress()` function also gives you access to the API that controls the presentation.
-    
-    Just store the result of the call:
-    
-        var api = impress();
-    
-    and you will get three functions you can call:
-    
-        `api.init()` - initializes the presentation,
-        `api.next()` - moves to next step of the presentation,
-        `api.prev()` - moves to previous step of the presentation,
-        `api.goto( idx | id | element, [duration] )` - moves the presentation to the step given by its index number
-                id or the DOM element; second parameter can be used to define duration of the transition in ms,
-                but it's optional - if not provided default transition duration for the presentation will be used.
-    
-    You can also simply call `impress()` again to get the API, so `impress().next()` is also allowed.
-    Don't worry, it wont initialize the presentation again.
-    
-    For some example uses of this API check the last part of the source of impress.js where the API
-    is used in event handlers.
-    
--->
-
+            ]
+        });
+    </script>
 </body>
 </html>
