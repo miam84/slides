@@ -16,7 +16,7 @@
             </section>
             <section>
                 <section>
-                    <h1>Qu'est-ce que GIT ?</h1>
+                    <h1>Qu'est-ce que GIT ?</h1>                    
                 </section>    
                 <section>
                     <h1>Outil de versioning</h1>
@@ -33,17 +33,31 @@
                         <li>Gestion des conflits</li>
                         <li>Local repo</li>
                         <li>Gestion de l'historique</li>
-                        <li>Actuellement le plus répendu (support et intégration)</li>
+                        <li>Actuellement le plus répandu (support et intégration)</li>
                     </ul>
                 </section>
             </section>
             <section>
                 <section>
                     <h1>Philosophie GIT</h1>
+                    <img src="img/dafuq.jpg" alt="dafuq">
                 </section>
                 <section>
                     <h2>Repository distribué</h2>
                     <img src="img/distributed-repo.png" alt="Structure distribuée">
+                </section>
+                <section>
+                    <h2>Distribué VS Centralisé</h2>                    
+                    <div class="side-by-side-content">
+                        <figure>
+                            <img src="img/distributed-repo.png" alt="Structure distribuée">
+                            <caption>Structure distribuée</caption>
+                        </figure>
+                        <figure>
+                            <img src="img/centralized-repo.png" alt="Structure centralisée">
+                            <caption>Structure centralisée</caption>
+                        </figure>
+                    </div>
                 </section>
                 <section>
                     <h2>Distribué VS Centralisé</h2>
@@ -56,36 +70,26 @@
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Indépendant du réseau (latence, on-/offline,...)</td>
+                                <td>Indépendant du réseau <br/>(latence, on-/offline,...)</td>
                                 <td>Dépendance au réseau</td>
                             </tr>
                             <tr>
-                                <td>Interaction serveur et/ou inter-team</td>
-                                <td>Interaction client/serveur</td>
+                                <td>Client - serveur + inter-user</td>
+                                <td>Client - serveur</td>
                             </tr>
                             <tr>
-                                <td>Interaction local = Rapidité (log, diff,...)</td>
+                                <td>Interaction locale<br/>= Rapidité (log, diff,...)</td>
                                 <td>Selon les perf. réseau</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <figure>
-                                        <img src="img/distributed-repo.png" alt="Structure distribuée">
-                                        <caption>Structure distribuée</caption>
-                                    </figure>
-                                </td>
-                                <td>
-                                    <figure>
-                                        <img src="img/centralized-repo.png" alt="Structure centralisée">
-                                        <caption>Structure centralisée</caption>
-                                    </figure>
-                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </section>
                 <section>
-                    <h2>Snapshot VS Version</h2>
+                    <h2>Snapshot de version</h2>                    
+                    <img src="img/git-version-system.png" alt="Versioning par snapshot">
+                </section>
+                <section>
+                    <h2>Snapshot VS <br/>versioning de fichier</h2>
                     <div class="side-by-side-content">
                         <figure>
                             <img src="img/git-version-system.png" alt="Versioning par snapshot">
@@ -118,6 +122,7 @@
             <section>
                 <section>
                     <h1>File System</h1>
+                    <img src="img/git-folders.png" alt="Dossier .git">
                 </section>
                 <section>
                     <h2>Dossier .git</h2>
@@ -131,58 +136,93 @@
                     <p>Liste de dossiers/fichiers à ne pas tracker</p>
                 </section>
                 <section>
-                    <h2>Global .gitconfig</h2>
+                    <h2>Hooks</h2>
                     <ul>
-                        <li>Fichier de configuration global de git</li>
-                        <li>Hors projet = User config inter-repos</li>
-                        <li>Unix = ~/.gitconfig</li> 
-                        <li>Windows = C:/Users/&lt;<i>name</i>&gt;.gitconfig/</li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>Project .gitconfig</h2>
-                    <ul>
-                        <li>Config git spécifique au projet (override global config)</li>
-                        <li>$projectPath/.git/.gitconfig</li>
+                        <li>Tâches automatisées</li>
+                        <li>Configuré par command
+                            <ul>
+                                <li>commit</li>
+                                <li>push</li>
+                                <li>update</li>
+                                <li>...</li>
+                            </ul>
+                        </li>
                     </ul>
                 </section>
             </section>
             <section>
                 <section>
                     <h1>.gitconfig</h1>
+                    <pre><code>
+[core]
+    repositoryformatversion = 0
+    filemode = false
+    bare = false
+    logallrefupdates = true
+    symlinks = false
+    ignorecase = true
+    hideDotFiles = dotGitOnly
+[remote "origin"]
+    url = https://github.com/john-doh/foo.git
+    fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+    remote = origin
+    merge = refs/heads/master
+[credential]
+    helper = store
+[branch "develop"]
+    remote = origin
+    merge = refs/heads/develop
+                    </code></pre>
                 </section>
                 <section>
                     <h2>Aliases</h2>
                     <p>Permet de créer des raccourcis de commandes</p>
                     <ul>
                         <li>Commandes (st = status, cm = commit, ...)</li>
-                        <li>Targets (o = origin, m = master,...)</li>
+                        <li>Targets (o = origin, m = master, ...)</li>
                     </ul>
+                    <code>git config –global alias.st status</code>
                 </section>
                 <section>
-                    <h2>User informations</h2>
+                    <h2>Informations de projet et d'utilisateur</h2>
                     <ul>
-                        <li>Username</li>
+                        <li>Nom d'utilisateur</li>
                         <li>Email</li>
+                        <li>Ref. de branches</li>
+                        <li>Type de protocole (https://, git://, ...)</li>
                     </ul>
+                </section>                
+                <section>
+                    <h2>Config globale</h2>
+                    <ul>
+                        <li>.gitconfig</li>
+                        <li>Fichier de configuration global de git</li>
+                        <li>User config partagée pour tous repo</li>
+                        <li>Unix = ~/.gitconfig</li> 
+                        <li>Windows = C:/Users/&lt;<i>name</i>&gt;/.gitconfig/</li>
+                    </ul>
+                    <code>git config –global &lt;cmd&gt;</code>
                 </section>
                 <section>
-                    <h2>Aliases</h2>
-                    <p>Permet de créer des raccourcis de commandes</p>
+                    <h2>Config de projet</h2>
                     <ul>
-                        <li>Commandes (st = status, cm = commit, ...)</li>
-                        <li>Targets (o = origin, m = master,...)</li>
-                    </ul>
+                        <li>.git/config</li>
+                        <li>Config git spécifique au projet (priorité sur global config)</li>
+                        <li>&lt;projectPath&gt;/.git/config</li>
+                    </ul>                    
+                    <code>git config &lt;cmd&gt;</code>
                 </section>
             </section>
 
             <section>
                 <section>
-                    <h1>Git Flow</h1>                    
+                    <h1>Git Flow</h1>
+                    <img src="img/git-flow-title.png" alt="Illustration git flow">
                 </section>
                 <section>
                     <figure class="stretch">
-                        <img src="img/git-flow.png" alt="Git Flow"/>
+                        <img src="img/git-flow-h.png" alt="Git Flow présentation horizontale"/>
                     </figure>
                 </section>
                 <section>
@@ -244,6 +284,7 @@
             <section>
                 <section>
                     <h1>Les commandes de base</h1>
+                    <img src="img/git-cmd-title.png" alt="git bash">
                 </section>
                 <section>
                     <h2>git init</h2>
@@ -280,7 +321,7 @@
                         <li>-a => ajoute tous les fichiers modifiés</li>
                     </ul>
                     <code>git commit &lt;filename&gt; [&lt;filename&gt;...] [-a|-m|...] [message]</code>
-                </section>
+                </section>                
                 <section>
                     <h2>git diff</h2>
                     <p>Affiche le diff entre 2 versions</p>
@@ -312,16 +353,23 @@
             <section>
                 <section>
                     <h1>Les commandes de branching</h1>
+                    <img src="img/branch-all-the-things.jpg" alt="git branching cmd">
                 </section>
                 <section>
+                    <h1>TODO</h1>
                     <h2>git branch</h2>
                     <br/>
                     <h2>git checkout</h2>
                 </section>
                 <section>
+                    <h1>TODO</h1>
                     <h2>git merge</h2>
                     <br/>
                     <h2>git rebase</h2>
+                </section>
+                <section>
+                    <h1>TODO</h1>
+                    <h2>Merge VS Rebase</h2>
                 </section>
             </section>
             <section>
@@ -329,18 +377,139 @@
                     <h1>Les commandes de repository</h1>
                 </section>
                 <section>
+                    <h2>git push</h2>
+                    <code>git push &lt;repo&gt; &lt;branch&gt;</code>
+                </section>
+                <section>
                     <h2>git fetch</h2>
+                    <p>Download objets et références d'un autre repository</p>
+                    <code>git fetch [&lt;repo&gt; &lt;branch&gt;]</code>
                     <br/>
                     <h2>git pull</h2>
+                    <code>git pull [&lt;repo&gt; &lt;branch&gt;]</code>
+                </section>
+                <section>
+                    <h1>TODO</h1>
+                    <h2>fetch VS pull</h2>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Pull Request & Code Reviews</h1>
+                    <img src="img/grandma-wtf.jpg" alt="grandma wtf">
+                </section>
+                <section>
+                    <h2>Pull request</h2>
+                    <ul>
+                        <li>Permet de notifier le team d'une fin de développpement</li>
+                        <li>Offre un lieu de discussion du code</li>
+                        <li>Correction du code avec suivi</li>
+                        <li>Permet de rapatrier la nouvelle fonctionalité dans la branche de destination</li>
+                    </ul>
+                    <code>git request-pull &lt;start&gt; &lt;url&gt;</code>
+                    <code>git request-pull v1.0 https://git.ko.xz/project master</code>
+                </section>
+                <section>
+                    <h1>TODO</h1>
+                    <h2>Revue de code</h2>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>WorkFlow idéal</h2>
+                    <ol>
+                        <li>Branche de nouvelle fonctionnalité (développeur)</li>
+                        <li>Testing du code créé (développeur)</li>
+                        <li>Push du code sur le repo public (développeur)</li>
+                        <li>Pull request (développeur)</li>
+                        <li>Discussion et ajustement du code (Team)</li>
+                        <li>Merge de la fonctionnalité (Le lead dev ou responsable projet)</li>
+                        <li>Fermeture de la pull request (Le lead dev ou responsable projet)</li>
+                    </ol>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Outils</h1>
+                    <img src="img/tools.jpg" alt="Outils">
+                </section>
+                <section>
+                    <h2>git bash</h2>
+                    <p>Bash git avec possible intégration des cmd linux de base</p>
+                    <img src="img/logo-git-bash.png" alt="Logo Git Bash"/>
+                </section>
+                <section>
+                    <h2>SourceTree</h2>
+                    <p>Outils graphique de gestion de versioning (by Atlassian)</p>
+                    <img src="img/logo-sourcetree.png" alt="Logo SourceTree"/>
+                </section>
+                <section>
+                    <h2>GitKraken</h2>
+                    <p>Outils graphique de gestion de versioning (by Axosoft)</p>
+                    <img src="img/logo-gitkraken.png" alt="Logo GitKraken"/>
+                </section>
+                <section>
+                    <h2>Github Desktop</h2>
+                    <p>Outils graphique de gestion de versioning (by Github)</p>
+                    <img src="img/logo-github-desktop.png" alt="Logo Github Desktop"/>
+                </section>
+                <section>
+                    <h2>UnGit</h2>
+                    <p>Outil web de gestion de versioning basé sur NodeJS</p>
+                    <img src="img/logo-ungit.png" alt="Logo UnGit"/>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Repositories hébergés</h1>
+                    <ul>
+                        <li><a href="https://github.com/">github.com</a></li>
+                        <li><a href="https://bitbucket.org/">bitbucket.org</a> (Atlassian)</li>
+                        <li><a href="https://www.visualstudio.com/">visualstudio.com</a> Microsoft Team Foundation</li>
+                        <li><a href="https://www.assembla.com">assembla.com</a></li>
+                    </ul>
+                </section>
+            </section>
+            <section>
+                <section>
+                    <h1>Références</h1>
+                </section>
+                <section>
+                    <h2>Git project</h2>
+                    <ul>
+                        <li>Download : <a href="http://msysgit.github.io">msysgit.github.io</a></li>
+                        <li>Git book : <a href="http://git-scm.com/book/fr/v1">git-scm.com/book/fr/v1</a></li>
+                        <li>Tuto github : <a href="https://try.github.io">Try github.io</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Projets</h2>
+                    <p>Metro git</p>
+                    <p>
+                        <a href="https://github.com/vbarbaresi/MetroGit">https://github.com/vbarbaresi/MetroGit</a>
+                    </p>
+                    <img src="img/metro-git.png" alt="Screenshot MetroGit"/>
                 </section>
             </section>
         </div>
 	</div>
 
     
+    <script src="../libs/reveal.js/lib/js/head.min.js"></script>
     <script src="../libs/reveal.js/js/reveal.js"></script>
     <script>
-        Reveal.initialize();
+        var revealPlugins = '../libs/reveal.js/plugin/'
+        Reveal.initialize({
+            dependencies: [
+                // Zoom in and out with Alt+click
+                {
+                    src: revealPlugins + 'zoom-js/zoom.js',
+                    async: true
+                }
+
+            ]
+        });
     </script>
 </body>
 </html>
