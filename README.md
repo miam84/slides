@@ -15,9 +15,11 @@ npm i -g bower
 ```
 
 ## Installation
-Install the bower packages with this cmd executed from the root folder of the project
+Install the node packages with the following cmd executed from the root folder of the project
 ```
-bower install
+npm install
 ```
+
+
 
 => You're good to go. Navigate to the subfolders to display the slideshows.
