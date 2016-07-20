@@ -20,6 +20,10 @@ Install the node packages with the following cmd executed from the root folder o
 npm install
 ```
 
-
-
-=> You're good to go. Navigate to the subfolders to display the slideshows.
+## Launch
+Launch a node webserver with
+```
+npm start
+```
+and navigate to the displayed url to see it.
+! don't forget to concat the subfolder name to reach a specific slideshow !
