@@ -1,0 +1,33 @@
+{
+  "name": "slides",
+  "version": "1.0.0",
+  "description": "Own documentation as slideshows",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ylerjen/slides.git"
+  },
+  "keywords": [
+    "dev",
+    "documentation",
+    "slides"
+  ],
+  "author": "Yann LERJEN",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ylerjen/slides/issues"
+  },
+  "homepage": "https://github.com/ylerjen/slides#readme",
+  "dependencies": {
+    "font-awesome": "^4.6.3",
+    "impress.js": "^0.6.0",
+    "reveal.js": "^3.3.0"
+  },
+  "devDependencies": {
+    "connect": "^3.4.1",
+    "serve-static": "^1.11.1"
+  }
+}
