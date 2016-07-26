@@ -2,7 +2,7 @@
 
 Language : FR
 
-Cette documentation présente Git, ses fonctionnalités et commande de base ainsi que quelques informations supplémentaires comme des outils ou projets associés.
+Cette documentation présente Git, ses fonctionnalités et commande de base ainsi que quelques outils ou bonnes pratiques associées.
 
 ![](img/logo-git.png?raw=true)
 
