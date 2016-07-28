@@ -11,6 +11,7 @@
     display: flex;
     align-items: baseline;
 }
+.code,
 .reveal code {
     background-color: white;
     color: #000;
@@ -23,6 +24,38 @@
 .reveal code.inline {
     display: inline-block;
     margin: 0 10px;
+}
+.reveal .credit {
+    font-size: 0.5em;
+}
+.unstyled,
+.reveal .unstyled {
+    border: 0 none;
+    background: none;
+}
+.above,
+.reveal .above {
+    background: none;
+    border: 0 none;
+    font-size: 2em;
+    position: absolute;
+    text-shadow: 0 0 10px black;
+    transform: translate(-50%, -50%) scale(.1);
+    top: 50%;
+    left: 50%;
+    padding: 20px 100px;
+    transition: all 0.5s ease-in-out;
+}
+.above.visible,
+.reveal .above.visible {
+    transform: translate(-50%, -50%);
+}
+.filigran,
+.reveal .filigran {
+    background-color: rgba(100, 100, 100, 0.5);
+    border: 3px dashed red;
+    border-radius: 10px;
+    transform: translate(-50%, -50%) rotate(-30deg);
 }
 
 .big-top-margin,
