@@ -28,6 +28,10 @@
                         <li>Mercurial</li>
                     </ul>
                     <p>Créé par Linus Torvalds (linux)</p>
+                    <aside class="notes">Git est un outil qui permet de versioner des fichiers. D'autres systèmes existent,
+                        on citera par exemple SVN qui était très répendu avant Git, mais aussi CVS ou Mercurial.
+                        Git a été créé par Linus Torvalds, qui est également connu pour avoir créé le noyau linux.
+                    </aside>
                 </section>
                 <section>
                     <h2>Utiliser git</h2>
@@ -46,6 +50,14 @@
                     <div class="fragment above">
                         <img src="img/dafuq.jpg" alt="dafuq" class="unstyled">
                     </div>
+                    <aside class="notes">
+                        Git est difficile a appréhender pour les débutants face à d'autres système de versioning tel que SVN.
+                        Il y'a plus d'étapes pour effectuer des actions simples comme un commit poussé, plus de commandes similaires
+                        pour des résultats différents. Mais c'est aussi pour toutes ces raisons que Git est plus puissants puisqu'il
+                        permet plus de choses, découple mieux les étapes, et permet une meilleure organisation.
+                        Le but de cette formation est donc de présenter le fonctionnement et l'utilisation de Git, mais aussi de
+                        fournir quelques outils et bonnes pratiques afin d'augmenter l'efficacité de son utilisation.
+                    </aside>
                 </section>          
                 <section>
                     <h2>Alors pourquoi GIT ?</h2>
@@ -57,6 +69,24 @@
                         <li>Gestion de l'historique</li>
                         <li>Actuellement le plus répandu (support et intégration)</li>
                     </ul>
+                    <aside class="notes">
+                        Pourquoi utiliser git plutôt qu'un concurrent comme SVN qui peut paraître plus simple et plus rapide à utiliser ?
+                        - Performance : Git, de par sa gestion du versioning par snapshot (voir prochain chapitre) et par son système de dépôt local,
+                        est plus rapide. Comme tout se passe en local (status, diff, branch,...), nous sommes indépendants d'un serveur et ainsi, 
+                        des possibles latences ou pertes de connexion au réseau.
+                        - Structure de développement : La création de branches est très rapide avec git, ce qui pousse à utiliser cette structure et ainsi
+                        améliorer l'organisation du développement du projet dans les Teams
+                        - Gestion des conflits : Git favorise les commit nombreux mais léger, ce qui permet de mieux découpler le versioning, mais
+                        également de faciliter les fusions. De plus, les nombreux témoignages disponibles sur Internet s'accordent à dire que les conflits
+                        sont mieux géré par git que par ses concurrents. (Ex: pas de tree conflict svn)
+                        - Local repository : Avoir un dépôt local, permet de transformer facilement n'importe quel projet en un projet versioné. Cela permet aussi
+                        de faciliter les échanges en poussant directement nos versions vers un dépôt distant X ou Y.
+                        - Gestion de l'historique : L'utilisation de branches et les commandes tel que rebase, merge fast-forward, etc. permettent d'avoir un historique
+                        clair et fortement découplé en de nombreux commit léger, sans toutefois devoir ajouter des commit de fusion.
+                        - Support et intégration : Git est actuellement l'outil de versioning le plus utilisé dans le monde Open Source et sur Internet. Pour cette
+                        raison il est actuellement le plus souvent intégré nativement ou sous forme de plugin dans les IDE ou autres applications de développeurs (Sublime Text,
+                        Visual Studio, Visual Studio Code, IntelliJ suite, etc.)
+                    </aside>
                 </section>
             </section>
             <section>
