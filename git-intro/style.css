@@ -24,3 +24,8 @@
     display: inline-block;
     margin: 0 10px;
 }
+
+.big-top-margin,
+.reveal .big-top-margin {
+    margin-top: 20px;
+}
