@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>GIT Versioning</title>
-	<link rel="stylesheet" href="../node_modules/reveal.js/css/reveal.css">
-    <link rel="stylesheet" href="../node_modules/reveal.js/css/theme/black.css">
-    <link rel="stylesheet" href="style.css"/>
+	<link rel="stylesheet" type="text/css" href="../node_modules/reveal.js/css/reveal.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/reveal.js/css/theme/black.css">
+    <link rel="stylesheet" type="text/css" href="../node_modules/reveal.js/css/print/pdf.css" media="print">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 <body>    
 	<div class="reveal">
@@ -94,7 +95,7 @@
             <section>
                 <section>
                     <h1>Philosophie GIT</h1>
-                    <img src="img/dafuq.jpg" alt="dafuq">
+                    <img src="img/" alt=""/>
                 </section>
                 <section>
                     <h2>Repository distribué</h2>
@@ -361,7 +362,8 @@
                     <h2>git status</h2>
                     <p>Etat de versioning</p>
                     <code>git status</code>
-                    <img src="img/git-staging-zone.png" alt="Staging zone"/>
+                    <img src="img/git-staging-zone.png" alt="Staging zone" />
+                    <img src="img/file-status-lifecycle.png" alt="Git cycle de vie du statut d'un fichier" />
 
                 </section>
                 <section>
@@ -373,6 +375,9 @@
                 <section>
                     <h2>git add</h2>    
                     <p>Ajoute les fichiers au staging</p>
+                    <ul>
+                        <li>[-p] : Indexation partielle de fichier (hunk/lignes)</li>
+                    </ul>
                     <code>git add &lt;filename&gt; [&lt;filename&gt;...]</code>
                     <br/>
 
@@ -444,7 +449,7 @@
                     <h2>Checkout</h2>
                     <ul>
                         <li>[fichier] : revert les modifications du fichier</li>
-                        <li>[branche] : switch l'espace de travail sur la branche en paramêtre</li>
+                        <li>[branche] : switch l'espace de travail sur la branche en paramètre</li>
                         <li>[-b &lt;nom&gt;] : Commande raccourcie pour créer puis switcher vers une branche </li>
                     </ul>
                 </section>
@@ -658,12 +663,9 @@
         var revealPlugins = '../node_modules/reveal.js/plugin/'
         Reveal.initialize({
             dependencies: [
-                // Zoom in and out with Alt+click
-                {
-                    src: revealPlugins + 'zoom-js/zoom.js',
-                    async: true
-                }
-
+                // Zoom in and out with [Alt]+[click]
+                { src: revealPlugins + 'zoom-js/zoom.js', async: true },
+                { src: revealPlugins + 'notes-server/client.js', async: true }
             ],
             transition: 'convex'
         });
