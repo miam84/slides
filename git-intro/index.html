@@ -416,16 +416,10 @@
 
             <section>
                 <section>
-                    <h1>Bonnes pratiques</h1>
+                    <h1>Le branching</h1>
+                    <img src="img/branch-all-the-things.jpg" alt="git branching cmd" />
                 </section>
                 <section>
-                    <h2>Commit efficace</h2>
-                    <ul>
-                        <li>Atomique : Il ne concerne qu'une seule chose</li>
-                        <li>Petit : Il est le plus petit possible (mais cohérent)</li>
-                    </ul>
-                    <br/>
-                    <h3>Ref.</h3>
                     <ul>
                         <li><a href="https://github.com/erlang/otp/wiki/writing-good-commit-messages">Writing good commit messages</a></li>
                         <li><a href="http://chris.beams.io/posts/git-commit/">Git-commit by Chris Beams</a></li>
@@ -534,6 +528,47 @@
                     </ol>
                 </section>
             </section>
+
+            <section>
+                <section>
+                    <h1>Bonnes pratiques</h1>
+                </section>
+                <section>
+                    <h2>Faire des Commit efficaces</h2>
+                    <h1>TODO</h1>
+                    <ul>
+                        <li>Atomique : Il ne concerne qu'une seule chose</li>
+                        <li>Petit : Il est le plus petit possible (mais cohérent)</li>
+                        <li>Détaillé : Le commit message doit commencer par son type (fix, add, change, ...)</li>
+                        <li>Structuré : La 1ère ligne est un titre résumé, le reste un contenu détaillé</li>
+                    </ul>
+                    <br/>
+                    <h3>Ref.</h3>
+                    <ul>
+                        <li><a href="https://github.com/erlang/otp/wiki/writing-good-commit-messages">Writing good commit messages</a></li>
+                        <li><a href="http://chris.beams.io/posts/git-commit/">Git-commit by Chris Beams</a></li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Une fois poussé, ne plus toucher</h2>
+                    <aside class="notes">
+                        D'une fois qu'un changement a été poussé sur le repository public, il ne faut plus le modifier (revert, patching,...).
+                        Une modification de l'historique peut rendre très difficile l'adaptation des autres publisher du projet. C'est également pour
+                        cette raison qu'un rebase ne devrait jamais être effectué sur une branche partagée.
+                    </aside>
+                </section>
+                <section>
+                    <h2>Pull Requests</h2>
+                    <h1>TODO</h1>
+                    <ul>
+                        <li>Contrôle du bugfix ou feature selon la demande initiale</li>
+                        <li>Contrôle des tests</li>
+                        <li>Contrôle de la qualité de code (conventions, pattern, etc.)</li>
+                        <li>Contrôle des performances</li>
+                    </ul>
+                </section>
+            </section>
+
             <section>
                 <section>
                     <h1>Outils</h1>
