@@ -420,51 +420,61 @@
                     <img src="img/branch-all-the-things.jpg" alt="git branching cmd" />
                 </section>
                 <section>
-                    <ul>
-                        <li><a href="https://github.com/erlang/otp/wiki/writing-good-commit-messages">Writing good commit messages</a></li>
-                        <li><a href="http://chris.beams.io/posts/git-commit/">Git-commit by Chris Beams</a></li>
-                    </ul>
-                </section>
-                <section>
-                    <h2>Pull Requests</h2>
-                    <h1>TODO</h1>
-                    <ul>
-                        <li>Contrôle du bugfix ou feature selon la demande initiale</li>
-                        <li>Contrôle des tests</li>
-                        <li>Contrôle de la qualité de code (conventions, pattern, etc.)</li>
-                        <li>Contrôle des performances</li>
-                    </ul>
-                </section>
-            </section>
-            <section>
-                <section>
-                    <h1>Le branching</h1>
-                    <img src="img/branch-all-the-things.jpg" alt="git branching cmd" />
-                </section>
-                <section>
                     <h2>Pourquoi les branches ?</h2>
                     <ul>
                         <li>Git favorise le branching</li>
                         <li>Isolation de développement</li>
+                        <li>Structure</li>
                         <li>Pour garantir une stabilité sur master</li>
                         <li>Améliorer le développement par équipe</li>
                     </ul>
                 </section>
                 <section>
                     <h1>TODO</h1>
-                    <h2>git branch</h2>
-                    <br/>
-                    <h2>git checkout</h2>
+                    <h2>Branch</h2>
+                    <p>Interagit avec les branches</p>
+                    <ul>
+                        <li>liste les branches</li>
+                        <li>[-b] : créé une branche</li>
+                        <li>[-d] : supprime la branche (avec merge check)</li>
+                    </ul>
+                    <code>git branch [-b|d &lt;branch-name&gt;]</code>                    
+                </section>
+                <section>
+                    <h2>Checkout</h2>
+                    <ul>
+                        <li>[fichier] : revert les modifications du fichier</li>
+                        <li>[branche] : switch l'espace de travail sur la branche en paramêtre</li>
+                        <li>[-b &lt;nom&gt;] : Commande raccourcie pour créer puis switcher vers une branche </li>
+                    </ul>
                 </section>
                 <section>
                     <h1>TODO</h1>
-                    <h2>git merge</h2>
-                    <br/>
-                    <h2>git rebase</h2>
+                    <h2>Merge (fusion)</h2>
+                    <p>Fusionne une branche dans la branche courante via fast-forward</p>
+                    <ul>
+                        <li>Une fusion fast-forward ne créé pas de commit de merge</li>
+                        <li>[--no-ff] : force a ne pas utiliser le fast-forward</li>
+                    </ul>
                 </section>
                 <section>
                     <h1>TODO</h1>
+                    <h2>Rebase</h2>
+                    <ul>
+                        <li>Fusionne en déplacant les commit à la fin de l'historique</li>
+                        <li>Pas</li>
+                        <li></li>
+                    </ul>
+                </section>
+                <section>
                     <h2>Merge VS Rebase</h2>
+                    <div>
+                        <img src="img/merge-init-state.png" alt="Overview avant le merge" />
+                    </div>
+                    <div class="side-by-side-content">
+                        <img src="img/rebase.png" alt="Rebase overview" />
+                        <img src="img/merge.png" alt="Merge overview" />
+                    </div>
                 </section>
             </section>
 
