@@ -62,3 +62,14 @@
 .reveal .big-top-margin {
     margin-top: 20px;
 }
+
+.footnote,
+.reveal .footnote {
+    color: lightgray;
+    font-size: 0.8em;
+    font-style: italic;
+}
+.footnote-ref,
+.reveal .footnote-ref {
+    color: gold;
+}
