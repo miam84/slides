@@ -556,8 +556,10 @@
                     <ul>
                         <li>Atomique : Il ne concerne qu'une seule chose</li>
                         <li>Petit : Il est le plus petit possible (mais cohérent)</li>
+                        <li>Fréquent : La conséquence des deux points précédents</li>
                         <li>Explicite : Le commit message doit commencer par son type (fix, add, change, ...)</li>
                         <li>Structuré : La 1ère ligne est un titre résumé, le reste un contenu détaillé</li>
+                        <li>Informatif : Lire le log des commit doit pouvoir informer rapidement des changements</li>
                     </ul>
                     <br/>
                     <h3>Ref.</h3>
@@ -565,9 +567,17 @@
                         <li><a href="https://github.com/erlang/otp/wiki/writing-good-commit-messages">Writing good commit messages</a></li>
                         <li><a href="http://chris.beams.io/posts/git-commit/">Git-commit by Chris Beams</a></li>
                     </ul>
+                    <aside class="notes">
+
+                    </aside>
                 </section>
                 <section>
                     <h2>Une fois poussé, ne plus toucher</h2>
+                    <ul>
+                        <li>Poussé = public : Une modification de l'historique peut mettre qqun en difficulté</li>
+                        <li>Eviter les commit and push.</li>
+                        <li>Corriger une modification poussée via un commit de bugfix</li>
+                    </ul>
                     <aside class="notes">
                         D'une fois qu'un changement a été poussé sur le repository public, il ne faut plus le modifier (revert, patching,...).
                         Une modification de l'historique peut rendre très difficile l'adaptation des autres publisher du projet. C'est également pour
