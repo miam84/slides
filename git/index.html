@@ -255,7 +255,7 @@
                         <li>Nom d'utilisateur</li>
                         <li>Email</li>
                         <li>Ref. de branches</li>
-                        <li>Type de protocole (https://, git://, ...)</li>
+                        <li>Type de protocole (http[s]://, git://, ssh://, ftp[s]://, ...)</li>
                     </ul>
                 </section>
 
@@ -406,7 +406,7 @@
                     <br/>
 
                     <h2>git commit</h2>
-                    <p>Versionne le fichiers</p>
+                    <p>Versionne le fichier dans le repo</p>
                     <ul>
                         <li>En local</li>
                         <li>[-m] : ajoute un message (requis !)</li>
@@ -417,7 +417,7 @@
                 <section>
                     <h2>git diff</h2>
                     <p>Affiche le diff entre 2 versions</p>
-                    <code>git diff [&lt;revision&gt;] &lt;path&gt;</code>
+                    <code>git diff [&lt;revision&gt; &lt;path&gt;]</code>
                 </section>
                 <section>
                     <h2>git checkout</h2>
@@ -465,44 +465,50 @@
                     <ul>
                         <li>liste les branches</li>
                         <li>[-b] : créé une branche</li>
-                        <li>[-d] : supprime la branche (avec merge check)</li>
+                        <li>[-d] : supprime la branche (en vérifiant qu'elle a déjà été mergée)</li>
                     </ul>
-                    <code>git branch [-b|d &lt;branch-name&gt;]</code>                    
+                    <code>git branch [-b|d &lt;branch-name&gt;]</code>
                 </section>
                 <section>
                     <h2>Checkout</h2>
+                    <p></p>
                     <ul>
                         <li>[fichier] : revert les modifications du fichier</li>
                         <li>[branche] : switch l'espace de travail sur la branche en paramètre</li>
                         <li>[-b &lt;nom&gt;] : Commande raccourcie pour créer puis switcher vers une branche </li>
                     </ul>
+                    <code>git checkout [&lt;branch-name&gt; | &lt;file-name&gt;]</code>
                 </section>
                 <section>
-                    <h1>TODO</h1>
                     <h2>Merge (fusion)</h2>
                     <p>Fusionne une branche dans la branche courante via fast-forward</p>
                     <ul>
                         <li>Une fusion fast-forward ne créé pas de commit de merge</li>
+                        <li>Peut engendrer des conflits de merge</li>
                         <li>[--no-ff] : force a ne pas utiliser le fast-forward</li>
+                        <li>Un merge se fait depuis la branche receptrice</li>
                     </ul>
                 </section>
                 <section>
-                    <h1>TODO</h1>
+                    <h2>Merge flow</h2>
+                    <div class="side-by-side-content">
+                        <img src="img/forked-commit-history.png" alt="Forked Git flow" />
+                        <img src="img/git-merge-flow.png" alt="Git merge flow" />
+                    </div>
+                </section>
+                <section>
                     <h2>Rebase</h2>
                     <ul>
                         <li>Fusionne en déplacant les commit à la fin de l'historique</li>
-                        <li>Pas</li>
-                        <li></li>
+                        <li>A éviter sur une branche publique</li>
+                        <li>Le commit n'est pas un commit de merge, mais le commit utilisateur</li>
                     </ul>
                 </section>
                 <section>
-                    <h2>Merge VS Rebase</h2>
-                    <div>
-                        <img src="img/merge-init-state.png" alt="Overview avant le merge" />
-                    </div>
+                    <h2>Rebase flow</h2>
                     <div class="side-by-side-content">
-                        <img src="img/rebase.png" alt="Rebase overview" />
-                        <img src="img/merge.png" alt="Merge overview" />
+                        <img src="img/forked-commit-history.png" alt="Forked Git flow" />
+                        <img src="img/git-rebase-flow.png" alt="Git rebase flow" />
                     </div>
                 </section>
             </section>
@@ -611,7 +617,7 @@
                     <p>Utiliser le fichier .gitignore correctement en ignorant tout ce qui ne nécessite pas d'être versionné.</p>
                     <ul>
                         <li>Les fichiers utilisateurs (config perso d'IDE, de linter,...)</li>
-                        <li>Les fichiers sensibles (compte ftp,)</li>
+                        <li>Les fichiers sensibles (compte ftp, etc)</li>
                         <li>Les fichiers buildés ou importés (ou pas...<em class="footnote-ref">*</em>)</li>
                         <li>Les dossiers/fichiers temp</li>
                         <li>Les dossiers/fichiers de cache</li>
