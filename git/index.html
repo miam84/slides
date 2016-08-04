@@ -548,6 +548,7 @@
                         <li>Offre un lieu de discussion du code</li>
                         <li>Correction du code avec suivi</li>
                         <li>Permet de rapatrier la nouvelle fonctionalité dans la branche de destination</li>
+                        <li>Un pull request est publique, donc merge et non rebase</li>
                     </ul>
                     <code>git request-pull &lt;start&gt; &lt;url&gt;</code>
                     <code>git request-pull v1.0 https://git.ko.xz/project master</code>
@@ -604,8 +605,8 @@
                     <h2>Une fois poussé, ne plus toucher</h2>
                     <ul>
                         <li>Poussé = public : Une modification de l'historique peut mettre qqun en difficulté</li>
-                        <li>Eviter les commit and push.</li>
-                        <li>Corriger une modification poussée via un commit de bugfix</li>
+                        <li>Eviter les commit and push</li>
+                        <li>Corriger une modification poussée via un commit de bugfix et non via --amend</li>
                     </ul>
                     <aside class="notes">
                         D'une fois qu'un changement a été poussé sur le repository public, il ne faut plus le modifier (revert, patching,...).
