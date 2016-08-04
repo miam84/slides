@@ -408,18 +408,25 @@
                     <h2>git commit</h2>
                     <p>Versionne le fichier dans le repo</p>
                     <ul>
-                        <li>En local</li>
+                        <li>Transfère l'indexation dans la Base de données</li>
                         <li>[-m] : ajoute un message (requis !)</li>
                         <li>[-a] : ajoute tous les fichiers modifiés</li>
                         <li>[--amend] : modifie le dernier commit (message | fichier)</li>
                     </ul>
                     <code>git commit &lt;filename&gt; [&lt;filename&gt;...] [-a|-m|...] [message]</code>
-                </section>                
+                </section>    
+
                 <section>
                     <h2>git diff</h2>
-                    <p>Affiche le diff entre 2 versions</p>
+                    <p>Affiche les différences entre 2 versions</p>
+                    <ul>
+                        <li>Différence de fichiers</li>
+                        <li>Mais entre des branches</li>
+                        <li>Sans paramêtre, affiche toutes les différences de la branche en cours</li>
+                    </ul>
                     <code>git diff [&lt;revision&gt; &lt;path&gt;]</code>
                 </section>
+
                 <section>
                     <h2>git checkout</h2>
                     <ul>
@@ -428,6 +435,7 @@
                     </ul>
                     <code>git checkout &lt;filename&gt; [&lt;filename&gt;...]</code> 
                 </section>
+
                 <section>
                     <h2>git stash</h2>
                     <p>Remisage de travail en cours</p>
@@ -465,11 +473,13 @@
                     <p>Interagir avec les branches</p>
                     <ul>
                         <li>liste les branches</li>
-                        <li>[-b] : créé une branche</li>
-                        <li>[-d] : supprime la branche (en vérifiant qu'elle a déjà été mergée)</li>
+                        <li>[-a] : liste également les branches locales de dépôt distant</li>
+                        <li>[-b] &lt;branch-name&gt; : créé une branche avec le nom en paramètre</li>
+                        <li>[-d] &lt;branch-name&gt; : supprime la branche en paramètre (en vérifiant qu'elle a déjà été mergée)</li>
                     </ul>
-                    <code>git branch [-b|d &lt;branch-name&gt;]</code>
+                    <code>git branch [-a|b|d &lt;branch-name&gt;]</code>
                 </section>
+
                 <section>
                     <h2>Checkout</h2>
                     <p></p>
