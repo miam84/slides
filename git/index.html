@@ -522,20 +522,28 @@
                 </section>
                 <section>
                     <h2>git push</h2>
+                    <p>Pousse un objet local vers un repository</p>
                     <code>git push &lt;repo&gt; &lt;branch&gt;</code>
                 </section>
                 <section>
                     <h2>git fetch</h2>
-                    <p>Download objets et références d'un autre repository</p>
-                    <code>git fetch [&lt;repo&gt; &lt;branch&gt;]</code>
-                    <br/>
-                    <h2>git pull</h2>
-                    <p>Pousse un objet local vers un repository</p>
-                    <code>git pull [&lt;repo&gt; &lt;branch&gt;]</code>
+                    <p>Récupère les objets et références d'un autre repository</p>
+                    <ul>
+                        <li></li>
+                        <li>Fait uniquement un update de nos données de repo</li>
+                        <li>Fait avancer le pointer HEAD du master au même niveau que remote origin/master</li>
+                        <li>Le pointer du local master reste au même niveau</li>
+                        <li>Utile lorsque l'on travaille</li>
+                    </ul>
+                    
+                    <code>git fetch git fetch &lt;remote&gt; [&lt;branch&gt;]</code>
+                    <p class="footnote"><a href="http://stackoverflow.com/questions/292357/what-are-the-differences-between-git-pull-and-git-fetch#answer-10556826">Explication de StackOverflow</a></p>
                 </section>
                 <section>
-                    <h1>TODO</h1>
-                    <h2>fetch VS pull</h2>
+                    <h2>git pull</h2>
+                    <p>Récupère les commit d'un repository puis les fusionne à notre branche</p>
+                    <p>git pull = git fetch + git merge</p>
+                    <code>git pull [&lt;repo&gt; &lt;branch&gt;]</code>
                 </section>
             </section>
 
