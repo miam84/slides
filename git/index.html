@@ -480,23 +480,30 @@
                     </ul>
                     <code>git checkout [&lt;branch-name&gt; | &lt;file-name&gt;]</code>
                 </section>
+
                 <section>
                     <h2>Merge (fusion)</h2>
-                    <p>Fusionne une branche dans la branche courante via fast-forward</p>
+                    <p>Fusionne une branche dans la branche courante</p>
                     <ul>
-                        <li>Une fusion fast-forward ne créé pas de commit de merge</li>
+                        <li>Par défaut = fast-forward : ne créé pas de commit de merge</li>
                         <li>Peut engendrer des conflits de merge</li>
                         <li>[--no-ff] : force a ne pas utiliser le fast-forward</li>
-                        <li>Un merge se fait depuis la branche receptrice</li>
+                        <li>Un merge se fait depuis la branche réceptrice</li>
                     </ul>
                 </section>
+
                 <section>
                     <h2>Merge flow</h2>
-                    <div class="side-by-side-content">
-                        <img src="img/forked-commit-history.png" alt="Forked Git flow" />
-                        <img src="img/git-merge-flow.png" alt="Git merge flow" />
-                    </div>
+                    <p>Etat initial</p>
+                    <img src="img/forked-commit-history.png" alt="Forked Git flow" />
                 </section>
+                    
+                <section>
+                    <h2>Merge flow</h2>
+                    <p>Etat après merge</p>
+                    <img src="img/git-merge-flow.png" alt="Git merge flow" />
+                </section>
+
                 <section>
                     <h2>Rebase</h2>
                     <ul>
@@ -505,12 +512,19 @@
                         <li>Le commit n'est pas un commit de merge, mais le commit utilisateur</li>
                     </ul>
                 </section>
+
                 <section>
                     <h2>Rebase flow</h2>
-                    <div class="side-by-side-content">
+                        <p>Etat initial</p>
                         <img src="img/forked-commit-history.png" alt="Forked Git flow" />
-                        <img src="img/git-rebase-flow.png" alt="Git rebase flow" />
-                    </div>
+                </section>
+
+                <section>
+                    <h2>Rebase flow</h2>
+                    <p>Etat après rebase</p>
+                    <img src="img/git-rebase-flow.png" alt="Git rebase flow" />
+                </section>
+
                 <section>
                     <h2>Tag</h2>
                     <p>Taguer une version afin d'en faire une référence</p>
