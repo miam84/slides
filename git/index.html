@@ -348,6 +348,7 @@
                     <ul>
                         <li>Tag de version déployée</li>
                         <li>Source = master</li>
+                        <li>Annoter les tag avec un message</li>
                         <li>Semantic versioning (<a href="http://semver.org/">semver.org</a>)</li>
                     </ul>
                 </section>
@@ -510,6 +511,16 @@
                         <img src="img/forked-commit-history.png" alt="Forked Git flow" />
                         <img src="img/git-rebase-flow.png" alt="Git rebase flow" />
                     </div>
+                <section>
+                    <h2>Tag</h2>
+                    <p>Taguer une version afin d'en faire une référence</p>
+                    <ul>
+                        <li>Un tag public doit être annoté</li>
+                        <li>Un tag personel peut ne pas être annoté</li>
+                        <li>[-a] : Permet de saisir une annotation</li>
+                        <li>[-m] : Permet d'ajouter l'annotation directement dans la même commande</li>
+                    </ul>
+                    <code>git tag [-a|m &lt;msg&gt;] <&lt;tagname&gt;></code>
                 </section>
             </section>
 
@@ -522,8 +533,11 @@
                     <p>Pousse un objet local vers un dépôt</p>
                     <ul>
                         <li>[-u] : Pousse la branche (création) dans le dépôt distant</li>
+                        <li>[--tags] : Pousse tous les tags</li>
+                        <li>[--follow-tags] : Pousse les commit ainsi que les tags annotés et accessible</li>
                     </ul>
-                    <code>git push [-u] &lt;repo&gt; &lt;branch&gt;</code>
+                    <code>git push [-u] &lt;repo&gt; &lt;branch|tag&gt;</code>
+                    <code>git push [--tags|follow-tags]</code>
                 </section>
                 <section>
                     <h2>git fetch</h2>
@@ -644,6 +658,14 @@
                         <li>Contrôle des tests</li>
                         <li>Contrôle de la qualité de code (conventions, pattern, etc.)</li>
                         <li>Contrôle des performances</li>
+                    </ul>
+                </section>
+                <section>
+                    <h2>Tags</h2>
+                    <ul>
+                        <li>Créer un tag lors de chaque release déployée</li>
+                        <li>Annoter le tag</li>
+                        <li></li>
                     </ul>
                 </section>
             </section>
